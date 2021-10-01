@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--Programa que lee la longitud de los 3 lados de un triángulo y analiza qué tipo de triángulo es: no es
+triángulo, equilátero, isósceles, escaleno, rectángulo-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function comprobarTriangulo(l1,l2,l3,a1,a2,a3){
+            //Primero comprobar si es un triángulo
+            if (a1+a2+a3 != 180){
+                console.log("No es un triángulo");
+            } else {
+                //Comprobar si es rectángulo
+                if (a1==90 || a2==90 || a3==90){
+                    console.log('El triángulo es rectángulo.');
+                } else {
+                    console.log('No es un triángulo rectángulo.');
+                }
+                //Comprobar si es equilátero
+                if (l1==l2 && l1==l3){
+                    console.log('Es un triángulo equilátero.');
+                } else {
+                    //Comprobar si es isósceles
+                    if ((l1==l2 && l1!=l3) || (l1==l3 && l1!=l2) || (l2==l3 && l2!=l1)) {
+                        console.log("ES un triángulo isósceles");
+                    } else {
+                        //Si no se cumple ninguno de los casos anteriores es escaleno
+                        console.log("Es un triángulo escaleno");
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Comprobra triángulo</h1>
+    <form>
+        <input type="text" name="l1" value="Introduzca lado 1"><br>
+        <input type="text" name="l2" value="Introduzca lado 2"><br>
+        <input type="text" name="l3" value="Introduzca lado 3"><br>
+        <input type="text" name="a1" value="Introduzca ángulo 1"><br>
+        <input type="text" name="a2" value="Introduzca ángulo 2"><br>
+        <input type="text" name="a3" value="Introduzca ángulo 3"><br>
+        <input type="button" value="Comprobar triángulo" onclick="comprobarTriangulo(parseInt(l1.value),
+            parseInt(l2.value), parseInt(l3.value), parseInt(a1.value), parseInt(a2.value), parseInt(a3.value))">
+    </form>
+
+</body>
+
+</html>

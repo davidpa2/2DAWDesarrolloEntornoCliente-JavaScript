@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Realizar un documento html con código javascript que pida en un cuadro de texto de un
+formulario un número del 2 al 9, de forma que al darle a un botón llamado mostrar, 
+muestre la tabla de multiplicar de dicho numero.
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ejercicio6.js"></script>
+</head>
+<body>
+    <input type="text" id="numero" value="Escribe un número del 2 al 9"><br>
+    <input type="button" value="Mostrar tabla de multiplicar" onclick="mostrarTabla(parseInt(numero.value))">
+</body>
+</html>
