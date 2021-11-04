@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--3) Realizar una función javascript que elimine una subcadena de texto de un texto dado
+Ej:eliminarSubcadena("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá "1, 2, 3, 4 y 5” .
+Nota: replace() -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        eliminarSubcadena = (subcad, ...cadx) => { //"(subcad, ..cadx)", se usa para pasar por todos los valores de una cadena de texto
+        cadenaModificada = []; //Declara cadenaModificada, como un Array vacio, para que luego se le añadan elementos
+        cadx.forEach((element) => { //Foreach creado como arrow function
+          if (element.includes(subcad)) //Si el elemento recorrido contiene la subcadena pasada:
+            cadenaModificada.push(element.replace(subcad, "")); //Añadir al array el elemento sustituyendo la subcadena por un "" (vacio)
+        });
+        return cadenaModificada;
+      };
+
+      console.log(
+        eliminarSubcadena("xyz", "xyz1", "xyz2", "xyz3", "xyz4", "xyz5")
+      );    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Realizar una función javascript con notación “Arrow function” que dado un array como parámetro,
+devuelva un array con el mayor y el menor número encontrados en el array pasado como parámetro.
+Ej. mayorMenor(([7, 4, 5, 199, -21]) devolverá [199, --21]. 
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        mayorMenor = (...numeros) => {
+            let menor = numeros[0];
+            let mayor = numeros[0];
+            numeros.forEach((n) => {
+                if (n > mayor){
+                    mayor = n;
+                }
+
+                if (n < menor){
+                    menor = n;
+                }
+            });
+            let devolver = [mayor,menor];
+
+            console.log(devolver);
+        };
+
+        mayorMenor(2,45,78,-12,265,73);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

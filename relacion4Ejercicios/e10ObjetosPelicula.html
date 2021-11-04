@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script type="text/javascript" src="e10ObjetosPelicula.js"></script>
+    <script>
+      //p = new Pelicula("DD1234567","Venom 2","Fran Fers", '2021' , ['España','Africa'], "Western", 10);
+      //p.fichaTecnica();
+        
+      var informacionPeliculas = [
+        ["DD1234567","Venom 2", "Franchesco Fernandes", 2021, ["España"], "Western", 10],
+        ["GH7654321","SpiderMan", "Sabrina Loneliness", 2002, ["Spain"], "Family", 5],
+        ["JK7651234","Cars", "Davis Parejo", 2006, ["Ehpañita"], "Romance", 7]
+      ];
+
+      peliculas = [];
+
+      console.log(informacionPeliculas);
+
+      for (let i = 0; i < informacionPeliculas.length; i++) {
+        peliculas[i] = new Pelicula(informacionPeliculas[i][0],informacionPeliculas[i][1],
+        informacionPeliculas[i][2],informacionPeliculas[i][3],informacionPeliculas[i][4],
+        informacionPeliculas[i][5],informacionPeliculas[i][6],informacionPeliculas[i][7]);
+        
+        peliculas[i].fichaTecnica();
+      }
+
+      function crearPeliculas(infoPelis){
+        peliculas = [];
+        for (let i = 0; i < infoPelis.length; i++) {
+          let id = infoPelis[i][0];
+          let titulo = infoPelis[i][1];
+          let director = infoPelis[i][2];
+          let anio = infoPelis[i][3];
+          let pais = infoPelis[i][4];
+          let genero = infoPelis[i][5];
+          let calificacion = infoPelis[i][6];   
+
+          peliculas[i] = new Pelicula(id, titulo, director, anio, pais, genero, calificacion);
+          peliculas[i].fichaTecnica();
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
+
+<!--
+Realizar en javascript una clase llamada Película con los siguientes datos: id de la película, titulo,
+director, año de estreno, país o países de origen, género y calificación. Hay que comprobar lo siguiente:
+- que el id tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
+- que el título no supere los 100 caracteres.
+- que el año de estreno sea un número entero de 4 dígitos.
+- que el país o países sea introducidos en forma de array.
+- que el género introducido esté entre los siguientes géneros válidos. los géneros sean introducidos en
+forma de arreglo. - Valida que los géneros introducidos estén dentro de los géneros aceptados: Action,
+Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film
+Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, 
+Short, Sport, Talk-Show, Thriller, War, Western*. - Crea un método estático que devuelva los géneros
+aceptados*.
+Crear un método que devuelva toda la ficha técnica de la película.
+- A partir de un array con la información de 3 películas genera 3 instancias de la clase de forma
+automatizada e imprime la ficha técnica de cada película. 
+-->

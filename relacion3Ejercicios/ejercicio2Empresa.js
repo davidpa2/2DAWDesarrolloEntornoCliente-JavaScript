@@ -8,7 +8,6 @@ class Empresa {
 }
 
 class Cliente {
-  E;
   constructor(numCliente, dni, nombre, domicilio, cp, ciudad, provincia) {
     this.numCliente = numCliente;
     this.dni = dni;

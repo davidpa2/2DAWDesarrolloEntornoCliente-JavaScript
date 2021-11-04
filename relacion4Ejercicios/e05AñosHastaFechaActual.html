@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+Realizar una función javascript que dada una fecha, devuelva cuantos años han pasado
+hasta la fecha actual
+-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function calcularAños(yy,mm,dd) {
+        fecha = new Date(yy,mm,dd);
+        anio = fecha.getFullYear();
+        console.log(anio);
+
+        let fechaActual = new Date();
+        anioActual = fechaActual.getFullYear();
+        console.log(anioActual);
+
+        aniosPasados = anioActual - anio;
+
+        console.log('Entre ' + anioActual + ' y ' + anio + ' han pasado ' + 
+        aniosPasados + ' años');
+      }
+
+      calcularAños(2002,03,03);
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+    Realizar un ejercicio javascript que muestre un documento con 5 párrafos y 5 botones, el 
+    primer botón debe contener el texto “Cambiar todos”, el segundo botón “Cambiar primero”,
+    el tercer botón “Cambiar pares”, el cuarto botón “Cambiar impares”, el quinto botón 
+    “Añadir al final” y el sexto botón “Estado original” con las siguientes funciones 
+    respectivamente:
+    - Cambiar todos debe cambiar el color de todos los párrafos a rojo
+    - Cambiar primero debe mostrar en color rojo solo el primer párrafo
+    - Cambiar pares debe mostrar en color rojo solo los párrafos pares
+    - Cambiar impares debe mostrar en color rojo solo los párrafos impares
+    - Añadir al final debe añadir un párrafo después del 2º párrafo
+    - Estado original debe devolver el documento al estado original
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi molestiae quas voluptatem ducimus itaque sapiente est voluptatibus, omnis repellat repudiandae hic odio voluptas explicabo non nemo aspernatur laboriosam quaerat. Aliquam.</p>
+    <p>Nam voluptatibus quas ea molestiae ex deserunt illo aliquid praesentium corporis, illum voluptatum, perspiciatis dolorem vel reprehenderit nesciunt deleniti voluptates facilis laborum, eos quos ad tempora sapiente! Repudiandae, voluptate amet.</p>
+    <p>Corrupti ab cupiditate reprehenderit vel ullam aperiam dolorem quia, alias nihil omnis architecto cum porro debitis, consequuntur earum ratione veniam? Amet accusamus esse aperiam reiciendis doloremque odio quia ratione asperiores.</p>
+    <p>Minus modi ullam, dolores dolorum asperiores possimus explicabo dolore temporibus harum illo nisi fuga blanditiis neque cumque id aliquam ad sunt voluptatem delectus nam aperiam exercitationem! Expedita delectus provident consequuntur.</p>
+    <p>Non illo fugit quaerat saepe reiciendis laborum, maxime dolore recusandae est illum enim sequi odit dolorum quas minima possimus! Aliquid, ab eveniet atque iure tempora ducimus eaque minus in praesentium.</p>
+    
+    <button onclick="cambiarARojo()">Cambiar a rojo</button>
+    <button onclick="cambiarPrimero()">Cambiar primer párrafo a rojo</button>
+    <button onclick="cambiarPares()">Cambiar a rojo los pares</button>
+    <button onclick="cambiarImpares()">Cambiar a rojo los impares</button>
+    <button onclick="aniadirParrafo()">Añadir un párrafo por debajo del segundo</button>
+    <button onclick="volver()">Volver</button>
+
+    <script>
+        function cambiarARojo(){
+            let parrafos = document.querySelectorAll("p");
+            parrafos.forEach(element => {
+                element.style.color="red";
+            });
+        }
+
+        function cambiarPrimero(){
+            let parrafo = document.querySelector("p");
+            parrafo.style.color="red";
+        }
+
+        function cambiarPares(){
+            let parrafos = document.querySelectorAll("p");
+            
+            for (let i = 0; i < parrafos.length; i++) {
+                if(i % 2 != 0){
+                    parrafos[i].style.color="red";
+                }
+            }
+        }
+
+        function cambiarImpares(){
+            let parrafos = document.querySelectorAll("p");
+            
+            for (let i = 0; i < parrafos.length; i++) {
+                if(i % 2 == 0){
+                    parrafos[i].style.color="red";
+                }
+            }
+        }
+
+        function aniadirParrafo(){
+            let parrafos = document.querySelectorAll("p");
+            let nuevoP = document.createElement("p");
+            nuevoP.className = "nuevosParrafos";
+            
+            let texto = document.createTextNode(prompt('¿Que quieres añadir?'));
+            nuevoP.appendChild(texto);
+            parrafos[1].insertAdjacentElement('afterend',nuevoP);
+            console.log(document.querySelectorAll("p"));
+        }
+
+        function volver(){
+            let parrafos = document.querySelectorAll("p");
+            parrafos.forEach(element => {
+                element.style.color="black";
+            });
+
+            let nuevos = document.querySelectorAll(".nuevosParrafos");
+            nuevos.forEach(element => {
+                element.parentNode.removeChild(element);
+            });
+        }
+    </script>
+</body>
+</html>
