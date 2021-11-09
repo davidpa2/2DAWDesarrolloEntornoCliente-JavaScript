@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+    Crear un documento javascript que muestre un párrafo, dentro del cual, en alguna de sus 
+    líneas, aparezca un enlace a la dirección http://www.marca.es y un botón “Cambiar periódico”,
+    de forma que al pulsar dicho botón, se cambie la dirección del enlace por http://www.as.com
+-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function cambiarEnlace() {
+            let enlace = document.querySelector('a');
+            console.log(enlace)
+            if (enlace.href == "http://www.marca.es/"){
+                enlace.outerHTML = '<a href="http://www.as.com">Er As</a>';
+            } else {
+                enlace.outerHTML = '<a href="http://www.marca.es">Er Marca</a>';
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae fugiat delectus 
+        aliquam provident at veniam consequatur amet quo impedit! Porro sint cum sapiente modi 
+        maiores laudantium? Aut ratione possimus cum? <a href="http://www.marca.es">Er Marca</a> ipsum dolor sit amet consectetur 
+        adipisicing elit. Minus iste quod est. Quis explicabo ea est, illo nostrum minima 
+        placeat perferendis? Id quis quisquam minima odio quia sequi aut cupiditate.</p>
+        <button onclick="cambiarEnlace()">Cambiar enlace</button>
+</body>
+</html>

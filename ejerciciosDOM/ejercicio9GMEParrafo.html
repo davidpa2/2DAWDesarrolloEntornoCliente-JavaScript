@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae neque nam,
+      accusamus quas deleniti velit quibusdam iusto rerum fugit reprehenderit,
+      iste molestiae dolorum debitis adipisci ducimus tempora maiores dolorem
+      excepturi!
+    </p>
+    <p>
+      Consectetur, libero. Officiis expedita impedit quae mollitia veritatis
+      autem, dolores similique iure, quis nulla fugit, cumque ipsum magnam.
+      Autem officiis delectus magnam doloremque, modi ad odio possimus a
+      reiciendis nostrum.
+    </p>
+    <button onclick="agregarParrafo()">Add paragraph</button>
+    <button onclick="modificarParrafo()">Modify paragraph</button>
+    <button onclick="eliminarParrafo()">Delete paragraph</button>
+    <script>
+      function agregarParrafo() {
+        let parrafos = document.getElementsByTagName("p");
+
+        if (parrafos.length == 2) {
+          let p = document.createElement("p");
+          p.className = "nuevoParrafo";
+
+          p.appendChild(document.createTextNode("New paragraph"));
+
+          parrafos[0].insertAdjacentElement("afterend", p);
+        }
+      }
+
+      function modificarParrafo() {
+        let paragraph = document.getElementsByClassName("nuevoParrafo")[0];
+
+        paragraph.innerHTML = `${prompt("Nuevo texto", paragraph.innerText)}`;
+      }
+
+      function eliminarParrafo() {
+        let paragraph = document.getElementsByClassName("nuevoParrafo")[0];
+
+        paragraph.parentNode.removeChild(paragraph);
+      }
+    </script>
+  </body>
+</html>

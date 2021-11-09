@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 Dom</title>
+</head>
+
+<body onload="crearParrafos()">
+
+    <div id="texto"></div>
+
+
+<script>
+    function crearParrafos(){
+        //borramos pantalla para botón vovler
+        document.getElementById("texto").innerHTML = '';//Limpia la pantalla
+        let palabras = ["Casa", "Ordenador", "Trabajo", "Música", "Mate", "Vela", "Anillo", "Libro", "Pendiente", "Lluvia"];
+        for(let i=0; i < 10; i++){
+            document.getElementById("texto").innerHTML += `<p>${palabras[i]} </p>`
+        }
+        document.getElementById("texto").innerHTML += `<button onclick='ordenar();'>Ordenar</button>`
+    }
+
+    function ordenar(){
+        let parrafos = document.querySelectorAll("p");//Seleccionamos los elementos <p>
+        //creamos array para ir metiéndo contenido párrafos sin tag
+        let ordenado = []//Creamos un array vacio
+       
+        //recorremos párrafos y añadimos solo texto
+       for(let i=0; i<parrafos.length; i++){
+            ordenado.push(parrafos[i].innerText)//introdcimos dentro del nuevo array todos los valores del array anterior sin la etiqueta
+                                                //<p> con .innerText
+
+        }
+        console.log(`Ordenado: ${ordenado}`)
+        //ordenamos párrafos alfabéticamente
+        ordenado = ordenado.sort()
+
+        //borramos párrafos iniciales
+        document.getElementById("texto").innerHTML = '';//Limpiamos la pantalla
+
+        //recorremos array para mostrarlo en pantalla
+        for(let i=0; i<ordenado.length; i++){
+            document.getElementById("texto").innerHTML += `<p> ${ordenado[i]} </p>`;//Añada elemento p en la id texto
+
+        }
+
+        document.getElementById("texto").innerHTML += `<button onclick='crearParrafos();'>Volver</button>`;//Añade un botón volver que 
+                                                                                                //inicia la primera función
+
+    }
+
+</script>
+</body>
+</html>
