@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--
+<!--
 Definir la estructura de un objeto que almacena una factura. Las facturas están formadas por la
 información de la propia empresa (nombre de la empresa, dirección, teléfono, NIF), la información
 del cliente (Nº cliente, DNI, nombre, domicilio, cp, ciudad, provincia) y una lista de productos (cada
@@ -14,36 +14,39 @@ Notas: hay que hacerlo de las dos siguientes formas:
 - Notación de clases
 - Los datos de la factura serán inventados.
 -->
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script type="text/javascript" src="ejercicio2Empresa.js"></script>
-    <script>
-      //import * as Empresa from '../ejercicio2Empresa.js';
-      empresa1 = new Empresa("Paco", "Calle Juan", 213456, "ASDf32");
-      cliente1 = new Cliente(
-        1,
-        "asdf23",
-        "Huan",
-        "Su casa",
-        1324,
-        "Churriana",
-        "Cadiz"
-      );
-      var listaproductos = [
-        new Producto("Producto 1", 1, 10),
-        new Producto("Producto 2", 2, 100),
-        new Producto("Producto 3", 3, 1000),
-      ];
-      factura1 = new Factura(empresa1, cliente1, 3, "Contado");
-      console.log(empresa1);
-      console.log(cliente1);
-      console.log(factura1);
-      console.log(listaproductos);
-      factura1.total(listaproductos);
-    </script>
-  </head>
-  <body></body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script type="text/javascript" src="ejercicio2Empresa.js"></script>
+  <script>
+    //import * as Empresa from '../ejercicio2Empresa.js';
+    empresa1 = new Empresa("Paco", "Calle Juan", 213456, "ASDf32");
+    cliente1 = new Cliente(
+      1,
+      "asdf23",
+      "Huan",
+      "Su casa",
+      1324,
+      "Churriana",
+      "Cadiz"
+    );
+    var listaproductos = [
+      new Producto("Producto 1", 1, 10),
+      new Producto("Producto 2", 2, 100),
+      new Producto("Producto 3", 3, 1000),
+    ];
+    factura1 = new Factura(empresa1, cliente1, 3, "Contado");
+    console.log(empresa1);
+    console.log(cliente1);
+    console.log(factura1);
+    console.log(listaproductos);
+    factura1.total(listaproductos);
+  </script>
+</head>
+
+<body></body>
+
 </html>

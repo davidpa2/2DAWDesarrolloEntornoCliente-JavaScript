@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      uno = Math.round(Math.random() * 255);
+      dos = Math.round(Math.random() * 255);
+      tres = Math.round(Math.random() * 255);
+      document.body.style.background = `rgb(${uno},${dos},${tres})`;
+
+      numero = prompt("Escribe un número");
+
+      patron = /^\d*$/;
+
+      if (patron.test(numero)) {
+        alert("Has escrito un número");
+      } else {
+        alert("NO has escrito un número");
+      }
+    </script>
+  </body>
+</html>

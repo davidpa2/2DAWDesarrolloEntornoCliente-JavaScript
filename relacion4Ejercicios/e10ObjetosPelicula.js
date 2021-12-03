@@ -57,9 +57,9 @@ function validarAnio(anio){
     expresionRegular = /\d{4}/;
     
     if (expresionRegular.test(anio)){
-        document.write("El año no tiene 4 dígitos.<br>");
         return anio;
     } else {   
+        document.write("El año no tiene 4 dígitos.<br>");
         return 0;
     }
 }

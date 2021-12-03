@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div id="formLogin" class="container bg-light my-5 py-4" style="width: 30%">
+        <form action="">
+            <h3>Introduce un texto:</h3>
+            <textarea type="text" id="texto" class="form-control" placeholder="Nombre">Estoy en el IES Marqués de Comares estudiante javascript</textarea><br>
+            <button type="submit" class="btn btn-outline-dark" id="analizar">
+                Analizar
+            </button>
+        </form>
+    </div>
+
+    <script>
+        //Estoy en el IES Marqués de Comares estudiante javascript
+        let boton = document.getElementById("analizar");
+        console.log(boton)
+
+        boton.addEventListener("click", function (e) {
+            e.preventDefault();
+            let texto = document.getElementById("texto");
+            let arrayTexto = texto.value.split(" ");
+
+            let numeroPalabras = arrayTexto.length;
+            let primeraPalabra = arrayTexto[0];
+            let ultimaPalabra = arrayTexto[arrayTexto.length - 1];
+            let fraseAlReves = [];
+            for (let i = 0; i <= arrayTexto.length; i++) {
+                fraseAlReves[i] = arrayTexto[arrayTexto.length - i];               
+            }
+            let AZ = arrayTexto.sort();
+            let ZA = [];
+            for (let i = 0; i <= AZ.length; i++) {
+                ZA[i] = AZ[AZ.length - i];               
+            }
+
+            window.open().document.body.innerHTML =
+                `<h1>Información sobre el texto introducido...:</h1><hr>
+                Número de palabras: <b>${numeroPalabras}</b>.
+                <br>Primera palabra: <b>${primeraPalabra}</b>.
+                <br>Última palabra: <b>${ultimaPalabra}</b>.
+                <br>Colocadas al revés: <b>${fraseAlReves}</b>
+                <br>Ordenadas de la A a la Z: <b>${AZ}</b>
+                <br>Ordenadas de la Z a la A: <b>${ZA}</b>
+            `;
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

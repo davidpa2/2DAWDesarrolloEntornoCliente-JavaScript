@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <table border="1px"></table>
+    </div>
+
+    <script>
+      fila = new Array(7);
+      num = 1;
+      let tabla = document.querySelector("table");
+
+      for (let i = 0; i < fila.length; i++) {
+        let tr = document.createElement("tr");
+        tabla.appendChild(tr);
+        fila[i] = new Array(7);
+        for (let j = 0; j < fila[i].length; j++) {
+          fila[i][j] = num;
+          let td = document.createElement("td");
+          td.id = num;
+          td.innerHTML = num;
+          tr.appendChild(td);
+          num++;
+        }
+      }
+      console.log(fila);
+      generarLoteria();
+
+      /*for (let i = 0; i < 7; i++) {
+        let aleatorio = numAleatorio();
+        let celda = document.getElementById(aleatorio);
+        if (celda.style.background == "Orange"){
+          console.log("DUPLICADO");
+        }
+        while (celda.style.background == "rgb(255,165,0)") {
+          console.log(aleatorio + " duplicadoooo");
+          aleatorio = numAleatorio();
+          celda = document.getElementById(aleatorio);
+        }
+        console.log(aleatorio);
+        let celdaNueva = document.getElementById(aleatorio);
+        celdaNueva.style.background = "rgb(255,165,0)";
+      }*/
+
+      function generarLoteria() {
+        for (let i = 0; i < 7; i++) {
+          let aleatorio = numAleatorio();
+          let celda = document.getElementById(aleatorio);
+          if (celda.style.background != "rgb(255,165,0)") {
+            console.log(aleatorio);
+            let celdaNueva = document.getElementById(aleatorio);
+            celdaNueva.style.background = "rgb(255,165,0)";
+          } else {
+            console.log("DUPLICADO");
+            generarLoteria();
+          }
+        }
+      }
+
+      function numAleatorio() {
+        return Math.round(Math.random() * 48) + 1;
+      }
+    </script>
+  </body>
+</html>
+<!--
+Realizar una aplicación Web que simule el funcionamiento de una apuesta de la lotería
+primitiva, mostrando los números en su correspondiente tabla con una X.
+(Ojo: los números no se pueden repetir).
+-->

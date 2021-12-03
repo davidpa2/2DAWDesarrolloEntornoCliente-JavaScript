@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td {
+        width: 20px;
+        height: 20px;
+      }
+      .rojo {
+        background-color: red;
+      }
+      .verde {
+        background-color: green;
+      }
+      .amarillo {
+        background-color: yellow;
+      }
+      .gris {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Evento "onMouseEnter" "onMouseOut" y fondos</h1>
+    <hr />
+    <table border="1px">
+      <tr>
+        <td class="rojo"></td>
+        <td class="verde"></td>
+        <td class="amarillo"></td>
+        <td class="gris"></td>
+      </tr>
+    </table>
+    <hr />
+
+    <script>
+      celdas = document.querySelectorAll("td");
+
+      celdas.forEach((td) => {
+        td.addEventListener("mouseover", function () {
+          document.body.className = td.className;
+        });
+        /*td.addEventListener("mouseout", function (e) {
+          document.body.style.background = "white";
+        });*/
+      });
+      
+      /*function ponerBlanco() {
+          document.body.style.background = "white";
+       }*/
+    </script>
+  </body>
+</html>
+<!--
+  Crear un documento HTML con su correspondiente javascript, similar a la mostrada
+  a continuación, de forma que si nos ponemos sobre un cuadrado, el fondo de la
+  misma cambie a dicho color.
+-->

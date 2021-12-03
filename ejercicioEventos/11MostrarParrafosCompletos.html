@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Hola,<span> has descubierto mi secreto!</span></p>
+    <p>Esto<span> es increíbleee!</span></p>
+    <p>Es<span> algo loco!</span></p>
+    <p>Un<span> universo paralelo...</span></p>
+    <p>Secreto<span> entre tú y yo</span></p>
+    <p>En<span> cada párrafo hay algo oculto</span></p>
+    <p>Un<span> ejercicio un tanto extraño</span></p>
+    <p>Ejercicio<span> evaluable entre amigos</span></p>
+    <p>De<span> corazón te lo digo</span></p>
+    <p>DOM<span>: Don´t Ogle to Me!</span></p>
+
+    <script>
+        let span = document.querySelectorAll("span");
+        let p = document.querySelectorAll("p");
+
+        span.forEach((span) => {
+            span.style.visibility = "hidden";
+        });
+
+        console.log(p);
+        p.forEach((parrafo) => {
+            parrafo.addEventListener("mouseover", function () {
+                parrafo.childNodes[1].style.visibility = "visible";
+            });
+        });
+
+        p.forEach((parrafo) => {
+            parrafo.addEventListener("mouseout", function () {
+                parrafo.childNodes[1].style.visibility = "hidden";
+            });
+        });
+    </script>
+</body>
+
+</html>
+<!--
+Realizar un programa javascript aplicado a un documento con 10 párrafos, de los que se muestra
+únicamente la 1º palabra, de forma que al situar el ratón sobre dicha palabra, aparezca el 
+párrafo completo.
+-->

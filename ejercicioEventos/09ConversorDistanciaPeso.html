@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>Conversor de distancia y peso</h3>
+  <form>
+    Kms: <input type="number" name="Km" id="km" />
+    <button id="botonDistancia">Convertir distancia</button>
+    Metros: <input type="number" name="M" id="m" />
+    <hr />
+    Kgs: <input type="number" id="kg" />
+    <button id="botonPeso">Convertir peso</button>
+    Gramos: <input type="number" id="g" />
+  </form>
+
+  <script>
+    botonDistancia = document.getElementById("botonDistancia");
+    kilometros = document.getElementById("km");
+    metros = document.getElementById("m");
+
+    kilometros.addEventListener("click", function () {
+      metros.value = "";
+    });
+    metros.addEventListener("click", function () {
+      kilometros.value = "";
+    });
+
+    botonDistancia.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (metros.value == "") {
+        m = kilometros.value * 1000;
+        metros.value = m;
+      } else {
+        k = metros.value / 1000;
+        kilometros.value = k;
+      }
+    });
+
+    botonPeso = document.getElementById("botonPeso");
+    kilogramos = document.getElementById("kg");
+    gramos = document.getElementById("g");
+
+    kilogramos.addEventListener("click", function () {
+      gramos.value = "";
+    });
+    gramos.addEventListener("click", function () {
+      kilogramos.value = "";
+    });
+
+    botonPeso.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (gramos.value == "") {
+        g = kilogramos.value * 1000;
+        gramos.value = g;
+      } else {
+        k = gramos.value / 1000;
+        kilogramos.value = k;
+      }
+    });
+  </script>
+</body>
+
+</html>
+<!--
+Realizar un documento HTML con su correspondiente código Javascript que simule un
+conversor de distancia (Km a metros o viceversa) y un conversor de Peso
+(Kg a gramos o viceversa).
+Hay que tener en cuenta que en cuanto que hagamos clic en uno de los dos cuadros de
+texto del conversor de peso, el otro cuadro de texto debe ponerse en blanco
+(si es que hubiese algún contenido) y lo mismo para el conversor de distancia.
+Además, hay que comprobar que nos hayan metido al menos un dato para poder convertir.
+-->
