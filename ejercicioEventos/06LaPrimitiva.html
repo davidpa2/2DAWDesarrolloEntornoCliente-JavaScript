@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div>
-      <table border="1px"></table>
-    </div>
 
-    <script>
-      fila = new Array(7);
-      num = 1;
-      let tabla = document.querySelector("table");
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
 
-      for (let i = 0; i < fila.length; i++) {
-        let tr = document.createElement("tr");
-        tabla.appendChild(tr);
-        fila[i] = new Array(7);
-        for (let j = 0; j < fila[i].length; j++) {
-          fila[i][j] = num;
-          let td = document.createElement("td");
-          td.id = num;
-          td.innerHTML = num;
-          tr.appendChild(td);
-          num++;
-        }
+<body>
+  <div>
+    <table border="1px"></table>
+  </div>
+
+  <script>
+    fila = new Array(7); //Como habrá 7 filas, crear un array con longitud 7
+    num = 1; //Contador con el que se pondrá el número de cada celda
+    let tabla = document.querySelector("table");
+
+    //Recorrer las filas creando un tr por cada una
+    for (let i = 0; i < fila.length; i++) {
+      let tr = document.createElement("tr");
+      tabla.appendChild(tr);
+      fila[i] = new Array(7); //Además, por cada fila crear un array dentro de 7 posiciones, ya tendríamos la matriz
+      for (let j = 0; j < fila[i].length; j++) { //Recorrer las 'columnas'
+        fila[i][j] = num; //Asignar a cada posición el número que toque
+        let td = document.createElement("td"); //Crear un td en cada posición
+        td.id = num; //Cada td tiene un id con el numero que sea
+        td.innerHTML = num; //Escribir en el td el número
+        tr.appendChild(td);
+        num++; //Incrementar cada vez el número contador
       }
-      console.log(fila);
-      generarLoteria();
+    }
+    console.log(fila);
+    generarLoteria();
 
-      /*for (let i = 0; i < 7; i++) {
-        let aleatorio = numAleatorio();
-        let celda = document.getElementById(aleatorio);
-        if (celda.style.background == "Orange"){
+    function generarLoteria() {
+      //Recorrer la matriz generada
+      for (let i = 0; i < 7; i++) {
+        let aleatorio = numAleatorio(); //Obtener un número aleatorio
+        let celda = document.getElementById(aleatorio); //Sacar una celda aleatoria
+        if (celda.style.background != "rgb(255,165,0)") {
+          console.log(aleatorio); //Si la celda no está ya pintada, se puede pintar
+          let celdaNueva = document.getElementById(aleatorio);
+          celdaNueva.style.background = "rgb(255,165,0)";
+        } else { //Si ya se ha pintado, hay que llamar a de nuevo a generar loteria
           console.log("DUPLICADO");
-        }
-        while (celda.style.background == "rgb(255,165,0)") {
-          console.log(aleatorio + " duplicadoooo");
-          aleatorio = numAleatorio();
-          celda = document.getElementById(aleatorio);
-        }
-        console.log(aleatorio);
-        let celdaNueva = document.getElementById(aleatorio);
-        celdaNueva.style.background = "rgb(255,165,0)";
-      }*/
-
-      function generarLoteria() {
-        for (let i = 0; i < 7; i++) {
-          let aleatorio = numAleatorio();
-          let celda = document.getElementById(aleatorio);
-          if (celda.style.background != "rgb(255,165,0)") {
-            console.log(aleatorio);
-            let celdaNueva = document.getElementById(aleatorio);
-            celdaNueva.style.background = "rgb(255,165,0)";
-          } else {
-            console.log("DUPLICADO");
-            generarLoteria();
-          }
+          generarLoteria();
         }
       }
+    }
 
-      function numAleatorio() {
-        return Math.round(Math.random() * 48) + 1;
-      }
-    </script>
-  </body>
+    function numAleatorio() {
+      return Math.round(Math.random() * 48) + 1;
+    }
+
+    //MANERA PRIMITIVA E INCORRECTA
+    /*for (let i = 0; i < 7; i++) {
+let aleatorio = numAleatorio();
+let celda = document.getElementById(aleatorio);
+if (celda.style.background == "Orange"){
+  console.log("DUPLICADO");
+}
+while (celda.style.background == "rgb(255,165,0)") {
+  console.log(aleatorio + " duplicadoooo");
+  aleatorio = numAleatorio();
+  celda = document.getElementById(aleatorio);
+}
+console.log(aleatorio);
+let celdaNueva = document.getElementById(aleatorio);
+celdaNueva.style.background = "rgb(255,165,0)";
+}*/
+  </script>
+</body>
+
 </html>
 <!--
 Realizar una aplicación Web que simule el funcionamiento de una apuesta de la lotería

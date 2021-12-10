@@ -39,8 +39,9 @@
 
     <script>
       celdas = document.querySelectorAll("td");
-
+      //Para cada td añadir un evenListener
       celdas.forEach((td) => {
+        //El evento registrado será un mouseover en el que se pondrá el fondo del body del color que sea la clase del td
         td.addEventListener("mouseover", function () {
           document.body.className = td.className;
         });

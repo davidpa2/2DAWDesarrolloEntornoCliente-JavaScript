@@ -30,12 +30,15 @@
   <h2 id="resultado"></h2>
 
   <script>
+    //Añadir un eventListener al boton enviar
     document.getElementById("enviar").addEventListener("click", function (e) {
-      e.preventDefault();
+      e.preventDefault(); //Para evitar que se envíe el formulario
+      //Traer los valores de los imputs
       edad = document.getElementById("Edad").value;
       salario = document.getElementById("Salario").value;
       resultado = document.getElementById("resultado");
 
+      //Ir comparando según lo pedido
       if (salario < 2000 && salario > 1000) {
         if (edad > 50) {
           salario *= 1.1;

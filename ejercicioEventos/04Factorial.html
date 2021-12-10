@@ -1,65 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="formLogin" class="container bg-light my-5 py-4" style="width: 30%">
-      <form action="">
-        <label for="numero" class="form-label">Número:</label>
-        <input
-          type="number"
-          name="numero"
-          id="Numero"
-          class="form-control"
-          placeholder="Número positivo"
-        /><br />
-        <button type="submit" class="btn btn-danger" id="calcular">
-          Calcular
-        </button>
-        <input type="button" value="Limpiar" id="limpiar" class="btn btn-outline-dark"/>
-      </form>
-      <br><p id="resultado" class="text-info"></p>
-    </div>
 
-    <script>
-      resultado = document.getElementById("resultado");
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
 
-      document.getElementById("calcular").addEventListener("click", function (e) {
-          e.preventDefault();
-          numero = document.getElementById("Numero").value;
-          let f = factorial(numero);
-          resultado.innerText = `Resultado obtenido: ${f}`;
-        });
+<body>
+  <div id="formLogin" class="container bg-light my-5 py-4" style="width: 30%">
+    <h1>Calcular factorial</h1>
+    <form action="">
+      <label for="numero" class="form-label">Número:</label>
+      <input type="number" name="numero" id="Numero" class="form-control" placeholder="Número positivo" /><br />
+      <button type="submit" class="btn btn-danger" id="calcular">
+        Calcular
+      </button>
+      <input type="button" value="Limpiar" id="limpiar" class="btn btn-outline-dark" />
+    </form>
+    <br>
+    <p id="resultado" class="text-info"></p>
+  </div>
 
-      function factorial(n) {
-        if (n == 0) {
-          return 1;
-        }
-        console.log("hola");
-        return n*factorial(n - 1);
+  <script>
+    resultado = document.getElementById("resultado");
+
+    document.getElementById("calcular").addEventListener("click", function (e) {
+      e.preventDefault();
+      numero = document.getElementById("Numero").value;
+      let f = factorial(numero);
+      resultado.innerText = `Resultado obtenido: ${f}`;
+    });
+
+    function factorial(n) {
+      if (n == 0) { //Si se pasa 0 el factorial es 1
+        return 1;
       }
+      console.log("hola");
+      //Ir llamando a la misma función por recursividad pero con un valor inferior
+      return n * factorial(n - 1);
+    }
 
-      document.getElementById("limpiar").addEventListener("click", function () {
-        resultado.innerText = "";
-        numero = document.getElementById("Numero").value = "";
-      });
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    //Vaciar los inputs
+    document.getElementById("limpiar").addEventListener("click", function () {
+      resultado.innerText = "";
+      numero = document.getElementById("Numero").value = "";
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
 <!--Crear una página Web que pida un número entero positivo al usuario 
-    (no hace falta validad) y que devuelva el factorial de dicho número.-->
+    (no hace falta validar) y que devuelva el factorial de dicho número.-->

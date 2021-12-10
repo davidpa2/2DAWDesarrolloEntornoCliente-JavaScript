@@ -14,10 +14,10 @@
 
   <script>
     let boton = document.getElementById("generar");
-    let parrafosCreados = 0;
+    let parrafosCreados = 0; //Contador de párrafos creados
     boton.addEventListener("click", function () {
-      parrafosCreados++;
-      if (parrafosCreados <= 10) {
+      parrafosCreados++; //Incrementar el contador cada vez que se registre el evento
+      if (parrafosCreados <= 10) { //Sólo se generarán 10 párrafos
         let p = document.createElement("p");
         let texto = document.createTextNode("Párrafo generado " + parrafosCreados);
         p.appendChild(texto);

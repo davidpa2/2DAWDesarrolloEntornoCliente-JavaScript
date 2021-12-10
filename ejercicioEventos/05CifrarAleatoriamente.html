@@ -1,120 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="formLogin" class="container bg-light my-5 py-4" style="width: 30%">
-      <form action="">
-        <label for="texto" class="form-label">Texto a cifrar:</label>
-        <input
-          type="text"
-          name="texto"
-          id="Texto"
-          class="form-control"
-          placeholder="Texto"
-        /><br />
-        <button type="submit" class="btn btn-dark" id="cifrar">Cifrar</button>
-      </form>
-      <br />
-      <p id="resultado" class="text-info"></p>
-    </div>
 
-    <script>
-      resultado = document.getElementById("resultado");
-      letras = [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "ñ",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-      ];
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
 
-      document.getElementById("cifrar").addEventListener("click", function (e) {
-        e.preventDefault();
+<body>
+  <div id="formLogin" class="container bg-light my-5 py-4" style="width: 30%">
+    <form action="">
+      <label for="texto" class="form-label">Texto a cifrar:</label>
+      <input type="text" name="texto" id="Texto" class="form-control" placeholder="Texto" /><br />
+      <button type="submit" class="btn btn-dark" id="cifrar">Cifrar</button>
+    </form>
+    <br />
+    <p id="resultado" class="text-info"></p>
+  </div>
 
-        frase = document.getElementById("Texto").value;
-        cifrador = Math.round(Math.random() * 26);
-        console.log(
-          cifrador + "=============================================="
-        );
-        fraseEncriptada = new Array(frase.length);
+  <script>
+    resultado = document.getElementById("resultado");
+    //Declarar un array con las letras del abecedario
+    letras = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-        /*for (let i = 0; i < frase.length; i++) {
-          console.log(frase[i] + "-------------");
-          let nuevaPos;
-          for (let k = 0; k < letras.length; k++) {
-            if ((letras[k] = frase[i])) {
-              nuevaPos = k;
-              break;
-            }
-          }
-          for (let j = nuevaPos; j < cifrador + nuevaPos; j++) {
-            console.log(letras[j]);
-            if (letras[j + cifrador] >= 26) {
-              resta = j + cifrador - 26;
-              fraseEncriptada[i] = letras[resta];
-            }
-            fraseEncriptada[i] = letras[j];
-          }
-        }*/
+    document.getElementById("cifrar").addEventListener("click", function (e) {
+      e.preventDefault();
+      frase = document.getElementById("Texto").value;
+      //Numero aleatorio del 1 al 26 para correr tantas posiciones como se obtenga
+      cifrador = Math.round(Math.random() * 26);
+      console.log(cifrador + "==============================================");
+      fraseEncriptada = new Array(frase.length);
 
-        for (let i = 0; i < frase.length; i++) {
-          console.log(frase[i] + "-------------");
-          for (let j = 0; j < letras.length; j++) {
-            if (frase[i] == letras[j]) {
-              desfase = j;
-              desfase += cifrador;
-              if (desfase >= letras.length){
-                desfase -= letras.length;
-                fraseEncriptada[i] = letras[desfase];
-              } else {
-                fraseEncriptada[i] = letras[desfase];
-              }
+      //Primero recorrer la frase para ir cambiando letra a letra
+      for (let i = 0; i < frase.length; i++) {
+        console.log(frase[i] + "-------------");
+        for (let j = 0; j < letras.length; j++) { //Recorrer las letras del abecedario
+           //Si la letra que se está recorriendo en el primer for es igual a la del array de letras:
+          if (frase[i] == letras[j]) { 
+            desfase = j; //Guardar esa posición de j 
+            desfase += cifrador; //usar el desfase para sumar tantas posiciones como el cifrador tenga
+            if (desfase >= letras.length) { //Si el desfase supera la longitud del array de letras:
+              desfase -= letras.length; //Hay que restar el desfase con la longitud del array letras para calcular la posición de esa letra
+              fraseEncriptada[i] = letras[desfase];
+            } else { //Si no, se asigna la letra del array a la nueva frase encriptada directamente
+              fraseEncriptada[i] = letras[desfase];
             }
           }
         }
+      }
 
-        resultado.innerText = `Frase encriptada aleatoriamente: ${fraseEncriptada}`;
-      });
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      resultado.innerText = `Frase encriptada aleatoriamente: ${fraseEncriptada}`;
+
+      /*for (let i = 0; i < frase.length; i++) {
+  console.log(frase[i] + "-------------");
+  let nuevaPos;
+  for (let k = 0; k < letras.length; k++) {
+    if ((letras[k] = frase[i])) {
+      nuevaPos = k;
+      break;
+    }
+  }
+  for (let j = nuevaPos; j < cifrador + nuevaPos; j++) {
+    console.log(letras[j]);
+    if (letras[j + cifrador] >= 26) {
+      resta = j + cifrador - 26;
+      fraseEncriptada[i] = letras[resta];
+    }
+    fraseEncriptada[i] = letras[j];
+  }
+}*/
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
 <!--
 Realizar una aplicación Web que pida un texto y muestre el texto original y el mismo 

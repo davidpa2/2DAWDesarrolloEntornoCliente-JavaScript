@@ -21,20 +21,23 @@
     <p>DOM<span>: Don´t Ogle to Me!</span></p>
 
     <script>
+        //Traer todos los span y párafos
         let span = document.querySelectorAll("span");
         let p = document.querySelectorAll("p");
 
+        //Para empezar, ocultar todos los span
         span.forEach((span) => {
             span.style.visibility = "hidden";
         });
 
         console.log(p);
+        //A cada párrafo añadir un mouseover para hacer visible a su elemento hijo (span)
         p.forEach((parrafo) => {
             parrafo.addEventListener("mouseover", function () {
                 parrafo.childNodes[1].style.visibility = "visible";
             });
         });
-
+        //A cada párrafo añadir un mouseout para ocultar a su elemento hijo (span)
         p.forEach((parrafo) => {
             parrafo.addEventListener("mouseout", function () {
                 parrafo.childNodes[1].style.visibility = "hidden";

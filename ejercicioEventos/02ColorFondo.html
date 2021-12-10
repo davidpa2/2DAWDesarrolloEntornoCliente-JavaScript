@@ -8,16 +8,18 @@
   </head>
   <body>
     <script>
+      //Generar tres números aleatorios desde el 0 al 255
       uno = Math.round(Math.random() * 255);
       dos = Math.round(Math.random() * 255);
       tres = Math.round(Math.random() * 255);
+      //Colocar los tres números en un rgb para cambiar el fondo
       document.body.style.background = `rgb(${uno},${dos},${tres})`;
 
-      numero = prompt("Escribe un número");
+      numero = prompt("Escribe un número"); //Pedir un número
 
-      patron = /^\d*$/;
+      patron = /^\d*$/; //Declarar un patrón en el que hay que poner un número
 
-      if (patron.test(numero)) {
+      if (patron.test(numero)) { //Comprobar si se han escrito números o no
         alert("Has escrito un número");
       } else {
         alert("NO has escrito un número");
@@ -25,3 +27,10 @@
     </script>
   </body>
 </html>
+<!--
+Crear un documento HTML con su correspondiente código Javascript que permita poner
+un fondo de color aleatorio a la página cada vez que entremos en la misma 
+(utilizar la propiedad rgb de CSS). Dicha página debe pedir un número mediante un 
+mensaje prompt, debiendo indicarnos mediante un mensaje de alerta si realmente
+hemos introducido un número o no
+-->

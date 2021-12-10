@@ -27,6 +27,7 @@
       clave = document.getElementById("Clave");
       titulo = document.getElementsByTagName("h1")[0];
 
+      //Al pulsar enviar hay que comprobar el usuario y la clave
       document.getElementById("enviar").addEventListener("click", function () {
         if (usuario.value == "admin" && clave.value == "1234") {
           titulo.innerText = "Bienvenido a Hogwarts";
@@ -37,6 +38,7 @@
         }
       });
 
+      //Vaciar los campos
       document.getElementById("limpiar").addEventListener("click", function () {
         usuario.value = "";
         clave.value = "";
