@@ -56,6 +56,7 @@
         let n2 = document.getElementById("n2");
         let resultado = document.getElementById("resultado");
 
+        //Detectar los eventos y llamar a los métodos definidos
         botonMCD.addEventListener("click", function(){
             let mcd = Math.mcd(n1.value,n2.value);
             resultado.value = mcd;

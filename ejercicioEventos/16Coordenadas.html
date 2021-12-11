@@ -58,6 +58,7 @@
         let botonBorrar = document.getElementById("borrar");
         let resultado = document.getElementById("resultado");
 
+        //Comparar los puntos
         botonComparar.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos()) {
@@ -67,6 +68,7 @@
             }
         });
 
+        //Sumar los puntos
         botonSumar.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos()) {
@@ -76,6 +78,7 @@
             }
         });
 
+        //Calcular la distancia entre puntos
         botonDistancia.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos()) {
@@ -85,6 +88,7 @@
             }
         });
 
+        //Vaciar todos los inputs
         botonBorrar.addEventListener("click", function (e) {
             e.preventDefault();
             x1.value = "";
@@ -94,6 +98,9 @@
             resultado.innerText = "";
         });
 
+        /**
+         * Comprobar si todos los campos o inputs están rellenos
+         */ 
         function comprobarCampos() {
             if (x1.value != "" && y1.value != "" && x2.value != "" && y2.value != "") {
                 return true;
@@ -108,5 +115,19 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
+<!--
+Crear un objeto de tipo punto que contenga dos propiedades x, e y que representarán a las coordenadas de
+dicho punto.
+a) Realizar el método cambiar al que le pasaremos las nuevas coordenadas, por lo que modificará las coordenadas
+de un punto.
+b) Un método llamado iguales que recibe un segundo punto y aplicado a un primer objeto, nos diga si ambos
+puntos son iguales.
+c) Un método llamado sumar, que recibirá un segundo punto y aplicado a un primer objeto devolverá un tercer
+punto resultado de sumar las dos coordenadas anteriores.
+d) Un método llamado distancia, que recibirá un segundo punto y aplicado a otro punto devolverá la distancia
+entre dichos puntos según la fórmula:
+Distancia (p1(x1,y1),p2(x2,y2))=√(𝑥2 − 𝑥1)
+2 + (𝑦2 − 𝑦1)
+2
+-->

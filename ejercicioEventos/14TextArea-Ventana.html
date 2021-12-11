@@ -31,19 +31,20 @@
             let texto = document.getElementById("texto");
             let arrayTexto = texto.value.split(" ");
 
-            let numeroPalabras = arrayTexto.length;
-            let primeraPalabra = arrayTexto[0];
-            let ultimaPalabra = arrayTexto[arrayTexto.length - 1];
-            let fraseAlReves = [];
+            let numeroPalabras = arrayTexto.length; //Contar palabras
+            let primeraPalabra = arrayTexto[0]; //Primera palabra del texto
+            let ultimaPalabra = arrayTexto[arrayTexto.length - 1]; //Última palabra
+            let fraseAlReves = []; //Pasar la frase al reves
             for (let i = 0; i <= arrayTexto.length; i++) {
                 fraseAlReves[i] = arrayTexto[arrayTexto.length - i];               
             }
-            let AZ = arrayTexto.sort();
-            let ZA = [];
+            let AZ = arrayTexto.sort(); //Ordenar de la A a la Z
+            let ZA = []; //Ordenar de la Z a la A
             for (let i = 0; i <= AZ.length; i++) {
                 ZA[i] = AZ[AZ.length - i];               
             }
 
+            //Abrir una ventana con todo el texto deseado
             window.open().document.body.innerHTML =
                 `<h1>Información sobre el texto introducido...:</h1><hr>
                 Número de palabras: <b>${numeroPalabras}</b>.

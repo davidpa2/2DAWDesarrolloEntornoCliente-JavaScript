@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hundir la flota</title>
     <script src="07HundirLaFlota.js"></script>
-    <link rel="stylesheet" href="07HundirLaFlota.css">
 </head>
 <body>
     <input type="submit" value="Generar tablero" id="boton">
     <script>
         let boton = document.getElementById("boton").addEventListener("click", function () {
+            event.preventDefault();
            generarTablero(); 
         });
     </script>

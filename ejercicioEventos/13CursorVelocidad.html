@@ -23,6 +23,7 @@
         let color = 255;
         document.body.addEventListener("keydown", function (e) {
             let numero = document.getElementById("numero");
+            //Si el número es menor de 100 y se pulsa el boton hacia arriba incrementar velocidad y "subir" el color
             if (numero.innerText < 100) {
                 if (e.key == "ArrowUp") {
                     //console.log("arriba")
@@ -32,6 +33,7 @@
                 }
             }
 
+            //Si el número es mayor de 100 y se pulsa el boton hacia arriba bajar velocidad y "bajar" el color
             if (numero.innerText > 0) {
                 if (e.key == "ArrowDown") {
                     //console.log("abajo")

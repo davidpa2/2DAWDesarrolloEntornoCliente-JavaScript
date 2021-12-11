@@ -21,10 +21,12 @@
   </form>
 
   <script>
+    //CONVERTIDOR DE DISTANCIA
     botonDistancia = document.getElementById("botonDistancia");
     kilometros = document.getElementById("km");
     metros = document.getElementById("m");
 
+    //Al hacer click sobre un input hay que vaciar el opuesto
     kilometros.addEventListener("click", function () {
       metros.value = "";
     });
@@ -43,10 +45,13 @@
       }
     });
 
+
+    //CONVERTIDOR DE PESO
     botonPeso = document.getElementById("botonPeso");
     kilogramos = document.getElementById("kg");
     gramos = document.getElementById("g");
 
+    //Al hacer click sobre un input hay que vaciar el opuesto
     kilogramos.addEventListener("click", function () {
       gramos.value = "";
     });

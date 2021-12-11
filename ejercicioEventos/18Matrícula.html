@@ -13,6 +13,7 @@
 <body>
     <h1>I.E.S Marqués de Comares</h1>
     <div class="row">
+        <!--Formulario DAW-->
         <div class="col-6">
             <div id="formLogin" class="container bg-light my-5 py-4">
                 <h3 class="text-start">Matriculación en el ciclo de grado superior DAW</h3>
@@ -21,18 +22,18 @@
                         <div class="col-8 my-2">
                             <label for="nomUsu" class="form">Apellidos:</label>
                             <input type="text" name="ap" id="ap" class="form-control" placeholder="Apellidos" />
-                            <p id="erApellido" style="color:red;"></p>
+                            <p id="erApellido" style="color:orange;"></p>
                         </div>
                         <div class="col-4 my-2">
                             <label for="nomUsu" class="form">Nombre:</label>
                             <input type="text" name="nom" id="nom" class="form-control" placeholder="Nombre" />
-                            <p id="erNombre" style="color:red;"></p>
+                            <p id="erNombre" style="color:orange;"></p>
 
                         </div>
                         <div class="col-8 my-2">
                             <label for="nomUsu" class="form">Domicilio:</label>
                             <input type="text" name="dom" id="dom" class="form-control" placeholder="Domicilio" />
-                            <p id="erDomicilio" style="color:red;"></p>
+                            <p id="erDomicilio" style="color:orange;"></p>
 
                         </div>
                         <div class="col-8 my-2">
@@ -41,12 +42,12 @@
                                 value="hombre">Hombre
                             <input type="radio" class="form-check-input ms-2" id="radio2" name="optradio"
                                 value="mujer">Mujer
-                            <p id="erSexo" style="color:red;"></p>
+                            <p id="erSexo" style="color:orange;"></p>
                         </div>
                         <div class="col-8 my-2">
                             <label for="nomUsu" class="form">Edad:</label>
                             <input type="number" name="edad" id="edad" class="form-control" placeholder="Edad" />
-                            <p id="eorangead" style="color:red;"></p>
+                            <p id="eorangead" style="color:orange;"></p>
                         </div>
                         <div class="col-8 my-2">
                             <label for="nomUsu" class="form">Cursos:</label>
@@ -58,62 +59,63 @@
                         <div class="col-12 my-2" id="modulos">
 
                             <label for="nomUsu" class="form">Módulos en los que se matricula:</label>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Entorno de Desarrollo</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Base de datos</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Programación</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Implantación de sistemas operativos</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Formación y orientación laboral</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Desarrollo Web en Entorno Cliente</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Desarrollo Web en Entorno Servidor</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Despliegue de aplicacciones Web</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Desarollo de interfaces web</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="check1" name="option1"
-                                        value="something">
-                                    <label class="form-check-label">Empresa e iniciativa emprendedora</label>
-                                </div>
-                            <p id="erModulos" style="color:red;"></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Entorno de Desarrollo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Base de datos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Programación</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Implantación de sistemas operativos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Formación y orientación laboral</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Desarrollo Web en Entorno Cliente</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Desarrollo Web en Entorno Servidor</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Despliegue de aplicacciones Web</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Desarollo de interfaces web</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1"
+                                    value="something">
+                                <label class="form-check-label">Empresa e iniciativa emprendedora</label>
+                            </div>
+                            <p id="erModulos" style="color:orange;"></p>
 
                         </div>
                         <div class="col-10 my-2">
                             <label for="comment">Observaciones:</label>
-                            <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Indique si tiene alguna observación..."></textarea>
+                            <textarea class="form-control" rows="5" id="comment" name="text"
+                                placeholder="¿Alguna observación?"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger " id="enviar">
@@ -126,6 +128,8 @@
             </div>
         </div>
 
+
+        <!--Formulario SMR-->
         <div class="col-6">
             <div id="formLogin" class="container bg-light my-5 py-4">
                 <h3 class="text-start">Matriculación en el ciclo de grado superior SMR</h3>
@@ -140,7 +144,7 @@
                         <div class="col-4 my-2">
                             <label for="nomUsu" class="form">Nombre:</label>
                             <input type="text" name="nom" id="nom" class="form-control" placeholder="Nombre" />
-                            <p id="erApellido" style="color:orange;"></p>
+                            <p id="erNombre" style="color:orange;"></p>
                         </div>
                         <div class="col-8 my-2">
                             <label for="nomUsu" class="form">Domicilio:</label>
@@ -224,7 +228,8 @@
                         </div>
                         <div class="col-10 my-2">
                             <label for="comment">Observaciones:</label>
-                            <textarea class="form-control" rows="5" id="comment" name="text" placeholder="Indique si tiene alguna observación..."></textarea>
+                            <textarea class="form-control" rows="5" id="comment" name="text"
+                                placeholder="¿Alguna observación?"></textarea>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-danger " id="enviar">
@@ -245,11 +250,10 @@
         btnEnviarF1.addEventListener("click", function () {
             event.preventDefault();
             btnEnviarF2.disabled = "true";
-            console.log("hola")
             comprobarApNom(document.forms[0].querySelector("#ap").value, document.forms[0].querySelector("#nom").value, document.forms[0]);
             comprobarDom(document.forms[0].querySelector("#dom").value, document.forms[0]);
             comprobarSex(document.forms[0].querySelector('input[name="optradio"]:checked'), document.forms[0]);
-            comprobaorangead(document.forms[0].querySelector("#edad").value, document.forms[0]);
+            comprobarEdad(document.forms[0].querySelector("#edad").value, document.forms[0]);
             comprobarModulos(document.forms[0].querySelectorAll('input[name="option1"]:checked'), document.forms[0]);
 
         });
@@ -260,67 +264,63 @@
             comprobarApNom(document.forms[1].querySelector("#ap").value, document.forms[1].querySelector("#nom").value, document.forms[1]);
             comprobarDom(document.forms[1].querySelector("#dom").value, document.forms[1]);
             comprobarSex(document.forms[1].querySelector('input[name="optradio"]:checked'), document.forms[1]);
-            comprobaorangead(document.forms[1].querySelector("#edad").value, document.forms[1]);
+            comprobarEdad(document.forms[1].querySelector("#edad").value, document.forms[1]);
             comprobarModulos(document.forms[1].querySelectorAll('input[name="option1"]:checked'), document.forms[1]);
         });
 
-        function comprobarApNom(ap, nom , formulario) {
+        function comprobarApNom(ap, nom, formulario) {
             arrayAp = ap.split("");
             expresionR = /^[a-z A-z]{1,30}$/;
             if (arrayAp.length < 1 || !expresionR.test(ap)) {
-                console.log("entro")
-                formulario.querySelector("#erApellido").innerHTML ="El apellido no esta bien."
-            }else{
-                formulario.querySelector("#erApellido").innerHTML =""
+                formulario.querySelector("#erApellido").innerHTML = "El apellido es incorrecto."
+            } else {
+                formulario.querySelector("#erApellido").innerHTML = ""
             }
             arrayAp = nom.split("");
             expresionR = /^[a-z A-z]{1,30}$/;
             if (arrayAp.length < 1 || !expresionR.test(nom)) {
-                console.log("entro")
-                formulario.querySelector("#erNombre").innerHTML ="El Nombre no esta bien."
-            }else{
-                formulario.querySelector("#erNombre").innerHTML =""
+                formulario.querySelector("#erNombre").innerHTML = "El Nombre es incorrecto."
+            } else {
+                formulario.querySelector("#erNombre").innerHTML = ""
             }
         }
 
         function comprobarDom(valor, formulario) {
             arrayAp = valor.split("");
             if (arrayAp.length < 1) {
-                console.log("entro")
-                formulario.querySelector("#erDomicilio").innerHTML ="Direccion incorrecta"
-            }else{
-                formulario.querySelector("#erDomicilio").innerHTML =""
+                formulario.querySelector("#erDomicilio").innerHTML = "Direccion incorrecta"
+            } else {
+                formulario.querySelector("#erDomicilio").innerHTML = ""
             }
         }
 
         function comprobarSex(valor, formulario) {
-            if(valor == null){
-                formulario.querySelector("#erSexo").innerHTML ="No se ha seleccionado ninguno"
-            }else{
-                formulario.querySelector("#erSexo").innerHTML =""
+            if (valor == null) {
+                formulario.querySelector("#erSexo").innerHTML = "Debes seleccionar uno"
+            } else {
+                formulario.querySelector("#erSexo").innerHTML = ""
             }
         }
 
-        function comprobaorangead(valor, formulario) {
+        function comprobarEdad(valor, formulario) {
             arrayAp = valor.split("");
             expresionR = /^\d{1,3}$/;
             if (!expresionR.test(valor)) {
                 console.log("entro")
-                formulario.querySelector("#eorangead").innerHTML ="Edad fuera de los limetes.";
-            }else{
-                formulario.querySelector("#eorangead").innerHTML =""
+                formulario.querySelector("#erEdad").innerHTML = "Edad fuera de los limites.";
+            } else {
+                formulario.querySelector("#erEdad").innerHTML = ""
             }
         }
 
         function comprobarModulos(valor, formulario) {
             //console.log(valor.length)
-            if(valor.length == 0){
-                formulario.querySelector("#erModulos").innerHTML ="No se ha seleccionado ninguno"
-            }else{
-                formulario.querySelector("#erModulos").innerHTML =""
+            if (valor.length == 0) {
+                formulario.querySelector("#erModulos").innerHTML = "Debes seleccionar uno"
+            } else {
+                formulario.querySelector("#erModulos").innerHTML = ""
             }
         }
     </script>
 </body>
-
 </html>

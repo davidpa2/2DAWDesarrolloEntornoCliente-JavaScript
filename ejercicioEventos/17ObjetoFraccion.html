@@ -61,6 +61,7 @@
         let resultado = document.getElementById("resultado");
         let resultado2 = document.getElementById("resultado2");
 
+        //MOSTRAR LAS FRACCIONES INTRODUCIDAS
         botonMostrar.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos()) {
@@ -78,6 +79,7 @@
             }
         });
 
+        //SIMPLIFICAR
         botonSimplificar.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos()) {
@@ -95,6 +97,7 @@
             }
         });
 
+        //MULTIPLICAR
         botonMultiplicar.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos1() && comprobarCampos2()) {
@@ -108,6 +111,7 @@
             }
         });
 
+        //DIVIDIR
         botonDividir.addEventListener("click", function (e) {
             e.preventDefault();
             if (comprobarCampos1() && comprobarCampos2()) {
@@ -121,6 +125,7 @@
             }
         });
 
+        //Borrar todos los inputs
         botonBorrar.addEventListener("click", function (e) {
             e.preventDefault();
             n1.value = "";
@@ -131,6 +136,9 @@
             resultado2.innerText = "";
         });
 
+        /**
+         * Comprobar que todos los inputs están rellenos
+         */ 
         function comprobarCampos() {
             if (comprobarCampos1() || comprobarCampos2()) {
                 return true;
@@ -139,7 +147,9 @@
                 return false;
             }
         }
-
+        /**
+         * Comprobar que los campos del primer punto están rellenos
+         */ 
         function comprobarCampos1() {
             if (n1.value != "" && d1.value != "") {
                 return true;
@@ -148,6 +158,9 @@
             }
         }
 
+        /**
+         * Comprobar que los campos del segundo punto están rellenos
+         */ 
         function comprobarCampos2() {
             if (n2.value != "" && d2.value != "") {
                 return true;

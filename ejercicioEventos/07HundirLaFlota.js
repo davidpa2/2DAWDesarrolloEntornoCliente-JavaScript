@@ -11,6 +11,9 @@ function generarTablero() {
 var longitudTablero = 10;
 var matriz = new Array(longitudTablero);
 
+/**
+ * Método utilizado para generar una matriz de 10 por 10 rellena de ceros
+ */
 function generarMatriz() {
     for (let i = 0; i < longitudTablero; i++) {
         matriz[i] = new Array(longitudTablero);
@@ -21,15 +24,20 @@ function generarMatriz() {
     console.log(matriz);
 }
 
+/**
+ * 
+ * @param {*} barcos Se trata de cuántos barcos se van a generar del tipo que se le indique
+ * @param {*} longitudBarco Tipo de barco que se va a generar según su longitud
+ */
 function generarBarcos(barcos, longitudBarco) {
     let barcosGenerados = 0;
-
-    while (barcosGenerados < barcos) {
-        let direccion = Math.round(Math.random() * (4 - 1) + 1);
+  
+    while (barcosGenerados < barcos) { //Hay que generar barcos hasta que se llegue al límite pasado
+        let direccion = Math.round(Math.random() * (4 - 1) + 1); //Num aleatorio entre 1 y 4
         console.log("direccion " + direccion)
         let fila = 0;
         let columna = 0;
-        switch (direccion) {
+        switch (direccion) { //Según el número aleatorio obtenido se generará el barco hacia una dirección
             case 1: //Para arriba
                 fila = Math.round(Math.random() * (9 - (longitudBarco - 1)) + (longitudBarco - 1));
                 columna = Math.round(Math.random() * 9);
@@ -52,8 +60,9 @@ function generarBarcos(barcos, longitudBarco) {
         }
         console.log("Fila: " + fila);
         console.log("Columna: " + columna);
-        let valido = true;
-        switch (direccion) {
+
+        let valido = true; //Variable que se encarga de comprobar que se puede colocar un barco en la posición elegida
+        switch (direccion) { //Ir comprobando si se puede colocar un barco en la posición antes obtenida
             case 1:
                 for (let i = fila - longitudBarco; i <= fila + 1; i++) {
                     for (let j = columna - 1; j <= columna + 1; j++) {
@@ -103,12 +112,12 @@ function generarBarcos(barcos, longitudBarco) {
                 break;
         }
 
-        if (valido) {
+        if (valido) { //Si tras comprobar si se puede colocar hay que poner en la matriz los barcos correspondientes
 
             switch (direccion) {
                 case 1:
                     for (let i = fila; i > fila - longitudBarco; i--) {
-                        matriz[i][columna] = longitudBarco;
+                        matriz[i][columna] = longitudBarco; //Si el barco mide 4, escribe un 4 donde toque...
                     }
                     break;
 
@@ -136,12 +145,15 @@ function generarBarcos(barcos, longitudBarco) {
     }
 }
 
+/**
+ * Método usado para generar la tabla HTML a partir de la matriz rellena con los barcos
+ */
 function generarTabla() {
     document.write("<table border=1>");
     for (let i = 0; i < matriz.length; i++) {
         document.write("<tr>");
         for (let j = 0; j < matriz[i].length; j++) {
-            switch (matriz[i][j]) {
+            switch (matriz[i][j]) { //Obtener lo que hay en cada posición de la matriz y pintar según lo que haya
                 case 1:
                     document.write(`<td style="background-color: brown; width: 50px; height: 50px">${matriz[i][j]}</td>`);
                     break;
