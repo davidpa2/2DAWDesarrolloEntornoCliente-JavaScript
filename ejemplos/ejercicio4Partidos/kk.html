@@ -26,10 +26,7 @@
             let visitante = document.forms[0].querySelector("#visitante");
 
             generarJugada(triples.value, local.value, visitante.value);
-            document.write("<table border='1'>");
-            mostrarTD();
-            document.write("</table>");
-
+            mostrarTabla();
         });
 
         var posiciones = new Array(15);
@@ -55,7 +52,8 @@
             } while (generados < cantidad);
         }
 
-        function mostrarTD() {
+        function mostrarTabla() {
+            document.write("<table border='1'>");
             for (let i = 0; i < posiciones.length; i++) {
                 switch (posiciones[i]) {
                     case "T":
@@ -75,6 +73,7 @@
                 }
 
             }
+            document.write("</table>");
         }
     </script>
 </body>
