@@ -27,12 +27,7 @@
 
             generarJugada(triples.value, local.value, visitante.value);
             document.write("<table border='1'>");
-            for (let i = 0; i < 15; i++) {
-                document.write("<tr>");
-                document.write(`<td>Jugada ${i + 1}</td>`);
-                    
-                document.write("</tr>");
-            }
+            mostrarTD();
             document.write("</table>");
 
         });
@@ -64,15 +59,15 @@
             for (let i = 0; i < posiciones.length; i++) {
                 switch (posiciones[i]) {
                     case "T":
-                        document.write(`<td>1</td> <td>X</td> <td>2</td>`);
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td>X</td> <td>2</td></tr>`);
                         break;
 
                     case "L":
-                        document.write(`<td>1</td> <td></td> <td></td>`);
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td></td> <td></td></tr>`);
                         break;
 
                     case "V":
-                        document.write(`<td></td> <td></td> <td>2</td>`);
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td></td> <td>2</td></tr>`);
                         break;
 
                     default:
