@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #confirmarContrasena {
+            display: none;
+        }
+
+        #imgError {
+            position:absolute;
+            display: none;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario">
+        Usuario: <input type="text" id="usuario"><br><br>
+        Contraseña: <input type="password" id="password"><br><br>
+        <div id="confirmarContrasena">Confirmar contraseña: <input type="text" id="confirmar"></div>
+        <button type="submit" id="enviar" disabled>Enviar</button>
+    </form>
+    <img id="imgError" src="img/solucionar-error-wordpress.jpg">
+    <script>
+        setInterval(() => {
+            var usuario = $("#usuario").val();
+            var password = $("#password").val();
+            var confirmar = $("#confirmar").val();
+            var validacionCorrecta = true;
+            if (!(usuario.length <= 10 && usuario.length >= 8)) validacionCorrecta = false;
+            if (!(password.length <= 10 && password.length >= 8)) validacionCorrecta = false;
+            if (validacionCorrecta) {
+                $("#confirmarContrasena").css("display", "block");
+                if (confirmar != password) {
+                    $("#imgError").fadeIn();
+                    $("#imgError").animate({
+                        left: '250px',    
+                        height: '150px',
+                        width: '150px'});
+                    $("#enviar").attr("disabled");
+                }
+                else {
+                    $("#imgError").fadeOut();
+                    $("#enviar").removeAttr("disabled");
+                }
+            }
+            else $("#confirmarContrasena").css("display", "none");
+        }, 1000);
+    </script>
+</body>
+</html>

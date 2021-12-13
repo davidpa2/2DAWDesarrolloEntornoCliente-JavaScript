@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+    <title>REPARACIONES COMARES</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    input[type=number] {
+        width: 50px;
+        }
+        
+        #marcaPortatil, #modeloPortatil {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Centro de Reparaciones IES Marqués de Comares</h1>
+    <table> 
+    <tr>
+    <td width="800">
+            <h2>Solicutud de Reparación</h2>
+            <form name="formulario1" action="#" method="get">
+                   <label for="apellido1">Apellidos: </label>
+                   <input type="text" name="apellido1" id="apellido1" size="40" maxlength="40" required>
+                   <label for="nombre1">Nombre: </label>
+                   <input type="text" name="nombre1" id="nombre1" required>
+                   <br/> <br/>
+                   <label for="telefono">Teléfono: </label>
+                   <input type="text" name="telefono" id="telefono" size="10" maxlength="9" required>
+                   <label for="numserire">Nº serie equipo: </label>
+                   <input type="text" name="numserie" id="numserie" size="30" maxlength="30" required>
+                   <br/> <br/>
+                   <label for="clasereparacion">Tipo de reparación: </label>
+                   <input type="radio" name="clasereparacion" value="sobremesa" required> Ordenador de sobremesa
+                   <input type="radio" name="clasereparacion" value="portatil"> Ordenador portátil
+                   <input type="radio" name="clasereparacion" value="immpresora"> Impresora
+                   <br/> <br/>
+                   <div id="marcaPortatil">Marca portatil: <input type="text"><br/> <br/></div>
+                   <div id="modeloPortatil">Modelo portatil: <input type="text"><br/> <br/></div>
+                      <label for="obtencion1">Antigüedad: </label>
+                   <input type="number" name="antiguedad" id="antiguedad" >
+                   <br/> <br/>
+                   <label for="select1">Tipo avería: </label>
+                   <select name="tipoaveria" id="tipoaveria">
+                   <option>hardware</option>
+                   <option>software</option>
+                   </select>
+                   <br/> <br/>
+                   <label for="sintomas">Síntomas avería: </label><br>
+                   <input type="checkbox" name="nohacenada" value="nohacenada" id="nohacenada"> No hace nada<br>
+                   <input type="checkbox" name="pitaynoenciende" value="pitaynoenciende" id="pitaynoenciende"> Pita y no enciende<br>
+                   <input type="checkbox" name="arrancayseapaga" value="arrancayseapaga" id="arrancayseapaga"> Arranca pero al rato se apaga<br>
+                   <input type="checkbox" name="novasistemaoperativo" value="novasistemaoperativo" id="novasistemaoperativo"> El sistema operativo no llega a arrancar<br>
+                   <input type="checkbox" name="pantallazoazul" value="pantallazoazul" id="pantallazoazul"> Pantallazo azul<br>
+                   <br/> <br/>
+                   <label for="observaciones1">Observaciones: </label><br>
+                   <textarea name="observaciones1" id="observaciones1" rows="10" cols="50">Indique si tiene alguna observación que crea importante que debamos conocer...</textarea>
+                   <br/> <br/>
+                   <input type="submit" value="Enviar" id="Enviar1">
+                   <input type="reset" id="Reset1" value="Limpiar">
+                </form>
+    </td>
+    </tr>
+    </table>
+    <script>
+        $('form').submit(function(e){
+            if ($('input[type=checkbox]:checked').length === 0) {
+                alert("seleccionar al menos un síntoma de avería");
+                e.preventDefault();
+            }
+        });
+
+        //Si se quiere comprobar el apartado A, se tiene que poner el button enviar a type button en vez de submit, para que este metodo tenga efecto
+        $("#Enviar1").click(function(){
+            $("input:checkbox:checked").each(function() {
+                console.log($(this).val());
+            });
+        });
+
+        $("#observaciones1").click(function(){
+            $(this).css("background", "black");
+            $(this).css("color", "white");
+        });
+
+        $("input[name=clasereparacion]").change(function(){
+            if ($(this).val() == "portatil") {
+                $("#marcaPortatil").css("display", "block");
+                $("#modeloPortatil").css("display", "block");
+            }
+            else {
+                $("#marcaPortatil").css("display", "none");
+                $("#modeloPortatil").css("display", "none");
+            }
+        });
+
+    </script>
+</body>
+</html>

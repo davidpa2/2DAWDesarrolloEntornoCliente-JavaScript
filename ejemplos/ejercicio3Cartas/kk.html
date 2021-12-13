@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let palos = ["picas", "corazones", "Tréboles", "Diamantes"];
+        let cartas = [];
+        let k = 0;
+        for (let i = 0; i < palos.length; i++) {
+            for (let j = 1; j <= 12; j++) {
+                cartas[k] = `${j} de ${palos[i]}`;
+                k++;
+            }
+        }
+
+        let cartaAleatoria = Math.round(Math.random() * 51);
+        console.log(cartas);
+        console.log(cartaAleatoria);
+        console.log(cartas[cartaAleatoria])
+
+        cartasPartidas = cartas[cartaAleatoria].split(" ");
+
+        if (cartasPartidas[0] == "1") {
+            console.log("HA SALIDO AS")
+        }
+    </script>
+</body>
+
+</html>

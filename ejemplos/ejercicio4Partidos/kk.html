@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Triples: <input type="number" id="triples">
+        Local: <input type="number" id="local">
+        Visitante: <input type="number" id="visitante">
+        <input type="submit" id="quiniela" value="Quiniela">
+    </form>
+
+    <script>
+        let boton = document.forms[0].querySelector("#quiniela");
+
+        boton.addEventListener("click", function (e) {
+            e.preventDefault();
+            let triples = document.forms[0].querySelector("#triples");
+            let local = document.forms[0].querySelector("#local");
+            let visitante = document.forms[0].querySelector("#visitante");
+
+            generarJugada(triples.value, local.value, visitante.value);
+            document.write("<table border='1'>");
+            for (let i = 0; i < 15; i++) {
+                document.write("<tr>");
+                document.write(`<td>Jugada ${i + 1}</td>`);
+                    
+                document.write("</tr>");
+            }
+            document.write("</table>");
+
+        });
+
+        var posiciones = new Array(15);
+        function generarJugada(triples, local, visitante) {
+            generarPosiciones(triples, "T");
+            generarPosiciones(local, "L");
+            generarPosiciones(visitante, "V");
+
+            console.log(posiciones);
+
+        }
+
+        function generarPosiciones(cantidad, letra) {
+            let generados = 0;
+            do {
+                let posicionAleatoria = Math.round(Math.random() * (15));
+
+                if (posiciones[posicionAleatoria] != "T" && posiciones[posicionAleatoria] != "V" && posiciones[posicionAleatoria] != "L") {
+                    posiciones[posicionAleatoria] = letra;
+                    generados++;
+                }
+
+            } while (generados < cantidad);
+        }
+
+        function mostrarTD() {
+            for (let i = 0; i < posiciones.length; i++) {
+                switch (posiciones[i]) {
+                    case "T":
+                        document.write(`<td>1</td> <td>X</td> <td>2</td>`);
+                        break;
+
+                    case "L":
+                        document.write(`<td>1</td> <td></td> <td></td>`);
+                        break;
+
+                    case "V":
+                        document.write(`<td></td> <td></td> <td>2</td>`);
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <table id="quiniela" border="1"></table>
+    <script>
+        quiniela(5, 8, 8);
+        function quiniela(n_triples, golesL, golesV) {
+            var posicionesTriples = [];
+            do {
+                var repetido = false;
+                var triple = Math.floor(Math.random() * 14);
+                posicionesTriples.forEach(posicionTriple => {
+                    if (posicionTriple == triple)
+                        repetido = true;
+                });
+                if (!repetido)
+                    posicionesTriples.push(triple);
+            } while (posicionesTriples.length != n_triples);
+            var tripleActual = 0;
+            posicionesTriples.sort((a, b) => a - b);
+            for (let i = 0; i < 15; i++) {
+                if (posicionesTriples[tripleActual] == i) {
+                    $("#quiniela").append("<tr><td>Partido" + (i+1) + "</td><td>1</td><td>X</td><td>2</td></tr>");
+                    tripleActual++;
+                }
+                else if (i != 14) {
+                        var apuesta = Math.floor((Math.random() * 3) + 1);
+                        if (apuesta == 1)
+                            $("#quiniela").append("<tr><td>Partido" + (i+1) + "</td><td>1</td><td></td><td></td></tr>");
+                        if (apuesta == 2)
+                            $("#quiniela").append("<tr><td>Partido" + (i+1) + "</td><td></td><td>X</td><td></td></tr>");
+                        if (apuesta == 3)
+                            $("#quiniela").append("<tr><td>Partido" + (i+1) + "</td><td></td><td></td><td>3</td></tr>");
+                     }
+                     else {
+                         if (golesL > 3) golesL = 3;
+                         if (golesV > 3) golesV = 3
+                        $("#quiniela").append("<tr><td>Partido" + (i+1) + "</td><td>" + golesL + "</td><td>" + golesV + "</td></tr>");
+                     }
+            }
+        }
+    </script>
+</body>
+</html>

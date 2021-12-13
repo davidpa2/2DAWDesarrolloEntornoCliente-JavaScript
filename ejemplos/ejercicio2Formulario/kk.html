@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Centro de Reparaciones Ma Haus</h1>
+    <form action="">
+        <h2>Solicitud de reparacion</h2>
+        <div class="row">
+            <div class="col">
+                Apellidos: <input type="text" name="apellidos" id="apellidos" required pattern="[A-Za-z0-9]{4,7}" title="Debes introducir un apellido">
+            </div>
+            <div class="col">
+                Nombre: <input type="text" name="nombre" id="nombre" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Teléfono: <input type="text" name="telefono" id="telefono">
+            </div>
+            <div class="col">
+                Nº serie equipo: <input type="text" name="numEquipo" id="numEquipo">
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-12">
+                Tipo de reparacion:<br>
+                Impresora <input type="radio" name="tipo" id="tipo" value="Impresora"><br>
+                Ordenador de sobremesa <input type="radio" name="tipo" id="tipo" value="Ordenador de sobremesa"><br>
+                Ordenador portátil <input type="radio" name="tipo" id="tipo" value="Ordenador portátil"><br>
+            </div>
+            <div class="col-12">
+                <span id="marcaPortatil">Marca portátil: <input type="text" name="marcaPortatil"></span>
+                <span id="modeloPortatil">Modelo portátil: <input type="text" id="modeloPortatil"
+                        name="marcaPortatil"></span>
+                <span id="antiguedad">Antigüedad: <input type="number" name="antiguedad" name="antiguedad"></span>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                Tipo de avería: <select name="tipoAveria">
+                    <option value="Hardware">Hardware</option>
+                    <option value="Software">Software</option>
+                </select>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                Síntomas de la avería: <br>
+                <input type="checkbox" name="noHaceNa">No hace nada <br>
+                <input type="checkbox" name="pita">Pita y no enciende <br>
+                <input type="checkbox" name="arracaYApaga">Arranca pero al rato se apaga <br>
+                <input type="checkbox" name="sistemaOperativoNoArranca">El sistema operativo no llega a arrancar <br>
+                <input type="checkbox" name="windows">Pantallazo azul <br>
+            </div>
+        </div><br>
+
+        <div class="row">
+            <div class="col">
+                Observaciones: <br>
+                <textarea name="obvervaciones" cols="40" rows="5"></textarea>
+            </div>
+        </div>
+        <input type="submit" id="enviar" value="Enviar">
+    </form>
+
+
+    <script>
+        let radio = document.forms[0].querySelectorAll("#tipo");
+        let spanMarca = document.forms[0].querySelector("#marcaPortatil");
+        let spanModelo = document.forms[0].querySelector("#modeloPortatil");
+        let textArea = document.forms[0].querySelector("textarea");
+
+        document.forms[0].querySelector("#enviar").addEventListener("click", function (e) {
+            comprobarRadio();
+        })
+
+        function comprobarRadio() {
+            let radioSeleccionado = false;
+            radio.forEach(element => {
+                if (element.checked == true) {
+                    radioSeleccionado = true;
+                }
+            });
+        }
+
+        radio.forEach(element => {
+            element.addEventListener("click", function (e) {
+
+                switch (element.value) {
+                    case "Ordenador portátil":
+                        spanMarca.style.display = "block";
+                        spanModelo.style.display = "block";
+                        break;
+
+                    default:
+                        spanMarca.style.display = "none";
+                        spanModelo.style.display = "none";
+                        break;
+                }
+            })
+        });
+
+        textArea.addEventListener("click", function(e) {
+            textArea.style.background = "black";
+            textArea.style.color = "white";
+        });
+        textArea.addEventListener("focusout", function(e) {
+            textArea.style.background = "white";
+            textArea.style.color = "black";
+        });
+
+    </script>
+</body>
+
+</html>
