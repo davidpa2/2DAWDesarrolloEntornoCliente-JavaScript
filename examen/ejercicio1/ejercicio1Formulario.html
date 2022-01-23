@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>REPARACIONES COMARES</title>
+    <style>
+        input[type=number] {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Centro de Reparaciones IES Marqués de Comares</h1>
+    <table>
+        <tr>
+            <td width="800">
+                <h2>Solicutud de Reparación</h2>
+                <form name="formulario1" action="#" method="get">
+                    <label for="apellido1">Apellidos: </label>
+                    <input type="text" name="apellido1" id="apellido1" required>
+                    <label for="nombre1">Nombre: </label>
+                    <input type="text" name="nombre1" id="nombre1" required>
+                    <br /> <br />
+                    <label for="telefono">Teléfono: </label>
+                    <input type="text" name="telefono" id="telefono" required>
+                    <label for="numserire">Nº serie equipo: </label>
+                    <input type="text" name="numserie" id="numserie" required>
+                    <br /> <br />
+
+                    <label for="clasereparacion">Tipo de reparación: </label>
+                    <input type="radio" id="tipo" name="clasereparacion" value="Ordenador de sobremesa"> Ordenador de sobremesa
+                    <input type="radio" id="tipo" name="clasereparacion" value="Ordenador portátil"> Ordenador portátil
+                    <input type="radio" id="tipo" name="clasereparacion" value="Impresora"> Impresora
+                    <br /> <br />
+
+                    <div class="col-12">
+                        <span id="marcaPortatil">Marca portátil: <input type="text" name="marcaPortatil"></span>
+                        <span id="modeloPortatil">Modelo portátil: <input type="text" id="modeloPortatil"
+                                name="marcaPortatil"></span>
+                        <span id="antiguedad">Antigüedad: <input type="number" name="antiguedad"
+                                name="antiguedad"></span>
+                    </div>
+
+                    <label for="select1">Tipo avería: </label>
+                    <select name="tipoaveria" id="tipoaveria">
+                        <option>hardware</option>
+                        <option>software</option>
+                    </select>
+                    <br /> <br />
+
+                    <label for="sintomas">Síntomas avería: </label><br>
+                    <input type="checkbox" class="sintomas" name="sintomas" value="No hacenada" id="nohacenada"> No
+                    hace nada<br>
+                    <input type="checkbox" class="sintomas" name="sintomas" value="Pita y no enciende"> Pita y no
+                    enciende<br>
+                    <input type="checkbox" class="sintomas" name="sintomas" value="Arranca y se apaga"
+                        id="arrancayseapaga">
+                    Arranca pero al rato se apaga<br>
+                    <input type="checkbox" class="sintomas" name="sintomas" value="No va sistema operativo">
+                    El
+                    sistema operativo no llega a arrancar<br>
+                    <input type="checkbox" class="sintomas" name="sintomas" value="Pantallazo azul"> Pantallazo
+                    azul<br>
+                    <p style="color: red;" class="errorSintomas"></p>
+                    <br /> <br />
+
+                    <label for="observaciones1">Observaaciones: </label><br>
+                    <textarea name="observaciones1" id="observaciones1" rows="10"
+                        cols="50">Indique si tiene alguna observación que crea importante que debamos conocer...</textarea>
+                    <br /> <br />
+                    <h2>Datos para próximos accesos:</h2><br>
+                    <label for="Usuario">Usuario</label>
+                    <input type="text" id="usuario" required><br>
+                    <label for="Password">Contraseña:</label>
+                    <input type="password" id="password" required pattern="\d{3}[A-Z]{1}[a-z]{1}" title="Debe tener el siguiente formato: _000Aa_"><br>
+                    <p>_123Ab_</p>
+                    <input type="submit" value="Enviar" id="Enviar">
+                    <input type="reset" id="Reset" value="Limpiar">
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        let boton = document.forms[0].querySelector("#Enviar");
+        let textArea = document.forms[0].querySelector("textarea");
+        let radio = document.forms[0].querySelectorAll("#tipo");
+        let spanMarca = document.forms[0].querySelector("#marcaPortatil");
+        let spanModelo = document.forms[0].querySelector("#modeloPortatil");
+        spanMarca.style.display = "none";
+        spanModelo.style.display = "none";
+        let errorSintomas = document.forms[0].querySelector("#errorSintomas");
+
+        boton.addEventListener("click", function (e) {
+            //e.preventDefault();
+            mostrarSintomas();
+            validarSintomas();
+        });
+
+        function mostrarSintomas() {
+            let sintomas = document.getElementsByClassName("sintomas");
+            for (let i = 0; i < sintomas.length; i++) {
+                if (sintomas[i].checked != false)
+                    console.log(sintomas[i].value)
+            }
+        }
+
+        function validarSintomas(){
+            let sintomas = document.forms[0].querySelectorAll('input[name="sintomas"]');
+            let marcado = false;
+            sintomas.forEach(sintoma => {
+                if (sintoma.checked = "true"){
+                    marcado = true;
+                }
+            });
+
+            if (!marcado) {
+                errorSintomas.innerText = "No has seleccionado ninguno";
+            }
+        }
+
+        textArea.addEventListener("click", function (e) {
+            textArea.style.background = "black";
+            textArea.style.color = "white";
+        });
+        textArea.addEventListener("focusout", function (e) {
+            textArea.style.background = "white";
+            textArea.style.color = "black";
+        });
+
+        radio.forEach(element => {
+            element.addEventListener("click", function (e) {
+
+                switch (element.value) {
+                    case "Ordenador portátil":
+                        spanMarca.style.display = "block";
+                        spanModelo.style.display = "block";
+                        break;
+
+                    default:
+                        spanMarca.style.display = "none";
+                        spanModelo.style.display = "none";
+                        break;
+                }
+            })
+        });
+
+        
+    </script>
+</body>
+
+</html>

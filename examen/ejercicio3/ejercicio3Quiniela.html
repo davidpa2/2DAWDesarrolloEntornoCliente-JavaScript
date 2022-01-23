@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Dobles: <input type="number" id="dobles">
+        <input type="submit" id="quiniela" value="Quiniela">
+    </form>
+
+    <script>
+        let boton = document.forms[0].querySelector("#quiniela");
+
+        boton.addEventListener("click", function (e) {
+            e.preventDefault();
+            let dobles = document.forms[0].querySelector("#dobles").value;
+            console.log(dobles)
+            var simples = 14 - dobles;
+
+            mostrarTabla(dobles, simples);
+        });
+
+        function mostrarTabla(dobles, simples) {
+            generarJugada(dobles, simples);
+
+            document.write("<table border='1'>");
+            for (let i = 0; i < posiciones.length; i++) {
+                switch (posiciones[i]) {
+                    case "D":
+                        let dobleAleatoria = Math.round(Math.random() * (2));
+                        switch (dobleAleatoria) {
+                            case 0:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td>X</td> <td></td></tr>`);
+                                break;
+
+                            case 1:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td></td> <td>2</td></tr>`);
+                                break;
+
+                            case 2:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td>X</td> <td>2</td></tr>`);
+                                break;
+
+                            default:
+                                break;
+                        }
+
+                        break;
+
+                    case "S":
+                        let simpleAleatoria = Math.round(Math.random() * (2));
+                        switch (simpleAleatoria) {
+                            case 0:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td></td> <td></td></tr>`);
+                                break;
+
+                            case 1:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td>X</td> <td></td></tr>`);
+                                break;
+
+                            case 2:
+                                document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td></td> <td>2</td></tr>`);
+                                break;
+
+                            default:
+                                break;
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+            document.write("</table>");
+        }
+
+        var posiciones = new Array(14);
+        function generarJugada(dobles, simples) {
+            generarPosiciones(dobles, "D");
+            generarPosiciones(simples, "S");
+
+            console.log(posiciones);
+
+        }
+
+        function generarPosiciones(cantidad, letra) {
+            let generados = 0;
+            do {
+                let posicionAleatoria = Math.round(Math.random() * (14));
+
+                if (posiciones[posicionAleatoria] != "D" && posiciones[posicionAleatoria] != "S") {
+                    posiciones[posicionAleatoria] = letra;
+                    generados++;
+                }
+
+            } while (generados < cantidad);
+        }
+    </script>
+</body>
+
+</html>

@@ -25,9 +25,34 @@
             let local = document.forms[0].querySelector("#local");
             let visitante = document.forms[0].querySelector("#visitante");
 
-            generarJugada(triples.value, local.value, visitante.value);
             mostrarTabla();
         });
+
+        function mostrarTabla() {
+            generarJugada(triples.value, local.value, visitante.value);
+
+            document.write("<table border='1'>");
+            for (let i = 0; i < posiciones.length; i++) {
+                switch (posiciones[i]) {
+                    case "T":
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td>X</td> <td>2</td></tr>`);
+                        break;
+
+                    case "L":
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td></td> <td></td></tr>`);
+                        break;
+
+                    case "V":
+                        document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td></td> <td>2</td></tr>`);
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+            document.write("</table>");
+        }
 
         var posiciones = new Array(15);
         function generarJugada(triples, local, visitante) {
@@ -50,30 +75,6 @@
                 }
 
             } while (generados < cantidad);
-        }
-
-        function mostrarTabla() {
-            document.write("<table border='1'>");
-            for (let i = 0; i < posiciones.length; i++) {
-                switch (posiciones[i]) {
-                    case "T":
-                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td>X</td> <td>2</td></tr>`);
-                        break;
-
-                    case "L":
-                        document.write(`<tr><td>Jugada ${i + 1}</td> <td>1</td> <td></td> <td></td></tr>`);
-                        break;
-
-                    case "V":
-                        document.write(`<tr><td>Jugada ${i + 1}</td> <td></td> <td></td> <td>2</td></tr>`);
-                        break;
-
-                    default:
-                        break;
-                }
-
-            }
-            document.write("</table>");
         }
     </script>
 </body>
