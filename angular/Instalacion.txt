@@ -1,0 +1,4 @@
+Para instalar Angular:
+1.- npm install -g @angular/cli@latest
+Crear un nuevo proyecto
+2.- ng new {nombreproyecto}
