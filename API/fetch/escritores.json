@@ -1,0 +1,53 @@
+{
+  "escritores": [
+    {
+      "id": 1,
+      "nombre": "Rubén Darío",
+      "pais": "Nicaragua",
+      "nacimiento": "18/01/1867",
+      "muerte": "06/02/1916"
+    },
+    {
+      "id": 2,
+      "nombre": "Juan Ramón Jiménez",
+      "pais": "Puerto Rico",
+      "nacimiento": "23/12/1881",
+      "muerte": "29/04/1958"
+    },
+    {
+      "id": 3,
+      "nombre": "Rafael Alberti",
+      "pais": "España",
+      "nacimiento": "16/12/1902",
+      "muerte": "28/10/1999"
+    },
+    {
+      "id": 4,
+      "nombre": "Cristina Padilla",
+      "pais": "España",
+      "nacimiento": "06/06/2000",
+      "muerte": "vivo"
+    },
+    {
+      "nombre": "Luis Cernuda",
+      "pais": "España",
+      "nacimiento": "02/12/1930",
+      "muerte": "02/06/1995",
+      "id": 5
+    },
+    {
+      "nombre": "Rubén Darío",
+      "pais": "Nicaragua",
+      "nacimiento": "18/01/1867",
+      "muerte": "06/02/1916",
+      "id": 6
+    },
+    {
+      "nombre": "Pepe",
+      "pais": "Cernuda",
+      "nacimiento": "18/01/1867",
+      "muerte": "06/02/1916",
+      "id": 8
+    }
+  ]
+}
