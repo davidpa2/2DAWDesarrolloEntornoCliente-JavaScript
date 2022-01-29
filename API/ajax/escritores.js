@@ -219,6 +219,7 @@ d.addEventListener("click", e => {
         $form.pais.value = e.target.dataset.pais;
         $form.nacimiento.value = e.target.dataset.nacimiento;
         $form.muerte.value = e.target.dataset.muerte;
+        $form.id.value = e.target.dataset.id;
     }
     /*Si el origen del click es el botón editar, cargamos los datos 
 en el formulario, para ello preguntamos si el origen coincide con la clase .delete*/

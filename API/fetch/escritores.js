@@ -1,29 +1,3 @@
-/* 
-Para usar jsonPlaceholder como una API REST falsa para simular el funcionamiento de una BD,
-lo primero que debemos de tener es nodejs, por tanto, habrá que seguir los pasos:
-1) Visitar nodejs.org y descargar la versión que deseemmos o necesitemos
-2) Instalar nodejs que hemos descargado
-3) Podemos comprobar si se ha instalado bien desde el terminal de windows o del de Visual Studio Code con node -v 
-4) Entrar en la página jsonPlaceholder que es la API que vamos a usar y enlazar con json-serve
-5) Acceder y abajo viene como instalar json-serve para poder simular la API REST
-6) Comando de instalación con el gestor de paquetes npm de nodejs: npm install -g json-server
-7) Descargar la versión core de insomnia para manejar la API Falsa ( https://insomnia.rest/download/)
-8) Iniciar insomnia
-9) Ejecutar desde un terminal de visual estudio code: json-server -w -p puerto json, donde puerto
-    por defecto es el 3333, pero podemos elegir otro para evitar conflictos, ej. 5555,
-    y donde json es el objeto json a usar
-10) Realizar las peticiones y pruebas necesarias
-*/
-
-
-
-/* declaración de variables
-$table para guardar la tabla con los resultados de la API Rest
-$form para apuntar al formulario
-$title para cambiar el título de la operación a realizar (Agregar Módulo, Editar Módulo, etc)
-$template para guardar el contenido de la template para modificar el DOM, por eso utilizamos .content
-$fragment para no realizar continuas inserciones al DOM
-*/
 const d = document,
     $table = d.querySelector(".crud-table"),
     $form = d.querySelector(".crud-form"),
@@ -184,7 +158,6 @@ d.addEventListener("submit", async (e) => {
     }
 });
 
-// idéntico a lo que hicimos en el crud_ajax
 d.addEventListener("click", async (e) => {
     if (e.target.matches(".edit")) {
         $titulo.textContent = "Editando a " + e.target.dataset.nombre;
@@ -192,6 +165,7 @@ d.addEventListener("click", async (e) => {
         $form.pais.value = e.target.dataset.pais;
         $form.nacimiento.value = e.target.dataset.nacimiento;
         $form.muerte.value = e.target.dataset.muerte;
+        $form.id.value = e.target.dataset.id;
     }
 
     if (e.target.matches(".delete")) {

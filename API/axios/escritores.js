@@ -70,10 +70,11 @@ d.addEventListener("submit", async (e) => {
     if (e.target === $form) {
         //detener la ejecución del botón, porque el procesamiento se hará por ajax
         e.preventDefault();
-
-        if (!e.target.id) {
+        
+        if (!e.target.id.value) {
             //Create - POST
-            try {                
+            try {     
+                alert("hola create "+ e.target.dataset.id)           
                 //creación de objeto options con las opciones de la petición fetch
                 let options = {
                     method: "POST",
@@ -100,7 +101,7 @@ d.addEventListener("submit", async (e) => {
         } else {
             //Update - PUT
             try {
-                alert("hola"+ e.target.dataset.id.value)
+                alert("hola put "+ e.target.id.value)
                 let options = {
                     method: "PUT",
                     headers: { "Content-type": "application/json; charset=utf-8" },
@@ -139,6 +140,7 @@ d.addEventListener("click", async (e) => {
         $form.pais.value = e.target.dataset.pais;
         $form.nacimiento.value = e.target.dataset.nacimiento;
         $form.muerte.value = e.target.dataset.muerte;
+        $form.id.value = e.target.dataset.id;
     }
 
     if (e.target.matches(".delete")) {
