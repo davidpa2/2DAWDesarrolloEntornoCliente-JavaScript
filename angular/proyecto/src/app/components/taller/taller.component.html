@@ -1,7 +1,7 @@
 <div class="container-fluid mt-3">
     <div class="row d-flex justify-content-around">
 
-        <div class="col-5 bg-danger zona" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="col-5 zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Vehículos en cola</h1>
             <img class="coche" src="https://i.pinimg.com/236x/5d/9d/3a/5d9d3a184cf865a4378844bd378d32a4--photoshop.jpg" draggable="true"
                 ondragstart="drag(event)" id="drag1" name="fuego" />
@@ -16,7 +16,7 @@
                 draggable="true" ondragstart="drag(event)" id="drag4" name="agua" />
         </div>
 
-        <div class="col-5 bg-primary zona">
+        <div class="col-5 bg-primary zona bg-transparent">
             <h1 class="text-white text-center">Zona de reparación</h1>
             <div class="row justify-content-center">
                 <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -28,8 +28,8 @@
         </div>
     </div>
 
-    <div class="row">        
-        <div class="col zona bg-info">
+    <div class="container row mt-2">        
+        <div class="col zona bg-transparent">
             <h1 class="text-white text-center">Vehículos reparados</h1>
             <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>

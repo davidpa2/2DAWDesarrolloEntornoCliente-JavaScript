@@ -1,35 +1,38 @@
 #container {
-    width: 580px;
-    height: 250px;
-    margin: 0 auto;
-    border: 1px solid black;
-    text-align: center;
+  width: 580px;
+  height: 250px;
+  margin: 0 auto;
+  border: 1px solid black;
+  text-align: center;
 }
 
 .padre {
-    width: 580px;
-    height: 120px;
-    display: flex;
+  width: 580px;
+  height: 120px;
+  display: flex;
 }
 
 .coche {
-    margin: 10px;
-    height: 80px;
-    width: 160px;
+  margin: 10px;
+  height: 80px;
+  width: 160px;
 }
 
 body {
-    background-color: #4a4a49 !important;
+  background-color: #4a4a49 !important;
 }
 
 .zona {
-    height: 25rem;
-    width: 25rem;
+  height: 25rem;
+  width: 25rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: yellow;
 }
 
 .plataforma {
-    background-color: lightgray;
-    margin: 10px;
-    height: 100px;
-    width: 130px;
+  background-color: lightgray;
+  margin: 10px;
+  height: 100px;
+  width: 130px;
 }

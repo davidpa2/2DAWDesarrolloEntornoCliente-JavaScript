@@ -1,9 +1,10 @@
-<div class="container contact-form mt-5">
-    <div class="contact-image">
-        <img src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+<div class="container bg-transparent contact-form mt-5">
+    <div class="cabeceraImg">
+        <img
+            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
     </div>
-    <form method="post">
-        <div class="row">
+    <form method="post" class="bg-transparent">
+        <div class="row mb-1">
             <div class="col-md-6">
                 <div class="form-group">
                     <input type="text" name="marca" class="form-control" placeholder="Marca *" value="" />
@@ -15,11 +16,13 @@
                     <input type="text" name="km" class="form-control" placeholder="Kilómetros *" value="" />
                 </div>
                 <div class="form-group">
-                    <select class="form-select form-control" aria-label="Default select example">
-                        <option selected>Selecciona un cliente</option>
-                        <option value="1">Francisco Fernández</option>
-                        <option value="2">David Parejo</option>
-                        <option value="3">Sabrina Ojea</option>
+                    <select class="form-select form-control border-white">
+                        <option class="text-dark" selected>Selecciona un cliente
+                            <i class="bi bi-arrow-down-circle-fill"></i>
+                        </option>
+                        <option class="text-dark" value="1">Francisco Fernández</option>
+                        <option class="text-dark" value="2">David Parejo</option>
+                        <option class="text-dark" value="3">Sabrina Ojea</option>
                     </select>
                 </div>
             </div>
@@ -30,17 +33,27 @@
                 </div>
                 <div class="form-group">
                     <textarea name="txtMsg" class="form-control" placeholder="Descripción de la avería *"
-                        style="width: 100%; height: 150px;"></textarea>
+                        style="width: 100%; height: 115px;"></textarea>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="form-group col-md-6">
-                <input type="submit" name="annadirCoche" class="btnContact" value="Añadir coche" />
+        <div class="row mb-1">
+            <div class="col-md-4">
+                <img class="imgCoche"
+                    src="https://static7.depositphotos.com/1062035/744/i/950/depositphotos_7447682-stock-photo-car-driving-fast.jpg">
             </div>
-            <div class="form-group col-md-6">
-                <input type="button" name="nuevoCliente" class="btnContact" value="¿Nuevo cliente?" />
+            <div class="form-group col-md-8 d-flex justify-content-center">
+                <input type="file" name="annadirCoche" class="form-control" value="Añadir coche" />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group col-md-6 d-flex justify-content-center">
+                <input type="submit" name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche" />
+            </div>
+            <div class="form-group col-md-6 d-flex justify-content-center">
+                <input type="button" name="nuevoCliente" class="btn btn-outline-warning rounded-pill" value="¿Nuevo cliente?" />
             </div>
         </div>
     </form>
