@@ -1,0 +1,12 @@
+<!--Vamos a incluir la cabecera de angular material en formato estático-->
+<app-componente-cabecera></app-componente-cabecera>
+<!-- Vista del componente principal, llamado desde index.htm mediante <app-root></app-root> -->
+<H1>Vista del componente principal app-root</H1>
+<!-- Contenido de la vista del primerComponente llamado desde app.component.html con <app-primer-componente> -->
+<!--comunicación padre a hijo pasando el valor de la variable comunicacionPadreaHijo que será -->
+<!--recogida por el hijo en app-primer-componente.ts con el nombre padreahijo-->
+<!--recoger el evento emitido por el hijo para comunicarse con el padre mediante (eventoHijo)-->
+    <app-primer-componente (eventoHijo)="mensajeHijoaPadre=$event" [padreahijo]="comunicacionPadreaHijo"></app-primer-componente>
+{{mensajeHijoaPadre}}
+
+<router-outlet></router-outlet>

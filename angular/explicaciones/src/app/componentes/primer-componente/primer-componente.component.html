@@ -1,0 +1,65 @@
+<p>Este es el contenido de la vista de primer-componente en el archivo app-primer-componente.html</p>
+<!--propiedad [value] para utilizar la comunicación property binding (en una única dirección, dede la clase a la vista)-->
+Nombre: <input type="text" name="" [value]="defaultNombre">
+<br>
+<br>
+
+<!--Definir variable template #email, lo que permite acceder de forma fácil a elementos del DOM -->
+<!--En este ejemplo vamos a pasarle la varible template email a la función OnEnviarFormulario-->
+Email:  <input #email type="text" name="">
+<br>
+<!-- ngModel para establecer comunicación bidireccionar entre la vista y la clase-->
+<!--ahora bien, para que funcione ngModel debemos importar el módulo correspondiente (FormsModule) en app-module.ts-->
+Usuario:{{usuario}}  <input [(ngModel)]="usuario" type="text" name="">
+<hr>
+<!-- Botón en el que configuramos el evento que queremos escuchar, y al pulsarlo ejecutamos la función onEnviarFormulario -->
+<!-- Ahora tenemos que programar la funcion onEnviarFormulario en la clase primer-componente.ts-->
+<!--El parámetro email hace referencia a la variable template #email-->
+<!--Vamos a cambiar el estilo del botón  para que sea raised button de angular material-->
+<!--<button (click)="onEnviarFormulario(email)">Enviar Formulario</button>-->
+<!--<button mat-raised-button color="primary" (click)="onEnviarFormulario(email)">Enviar Formulario</button>-->
+<button (click)="onEnviarFormulario(email)">Enviar Formulario</button>
+<br>
+<button mat-raised-button color="warn" (click)="onDefaultNombre()">Cambiar nombre</button>
+<button (click)="onMostrarContrasena()">Mostrar/Ocultar contraseña</button>
+
+<!-- Ejemplo de interpolación, vamos a mostrar el valor de la variable estado declarada en la clase-->
+<p>
+    {{estado}}
+</p>
+
+
+<!-- Directivas estructurales: para añadir o eliminar elementos al DOM-->
+
+<!--Directiva ngIf: si la expresión es falsa elimina del DOM, mientras que si es verdadera, lo añade-->
+<!-- además, Angular ofrece las <ng-template> para las directivas que facilitan mucho el trabajo-->
+<div *ngIf="mostrarContrasena;then mostrarPassword; else ocultarPassword"></div>
+<ng-template #mostrarPassword>
+    <p>la password es 123456</p>
+</ng-template>
+<ng-template #ocultarPassword>
+    <p>No se muestra el password</p>
+</ng-template>
+    
+<!--Directiva ngSwitch: se añadirá al DOM, dependiendo de la opción verdadera-->
+<div [ngSwitch]="semaforo">
+    <div *ngSwitchCase="'rojo'">Rojo</div>
+    <div *ngSwitchCase="'verde'">Verde</div>
+    <div *ngSwitchCase="'naranja'">Naranja</div>
+    <div *ngSwitchDefault>"Semáforo roto"</div>
+</div>
+
+<!--Directiva ngFor para añadir varios elementos al DOM-->
+<ul *ngFor="let nombre of nombres">
+  <li>{{nombre}}</li>
+</ul>
+
+<!--Variables por interpolación que trae el mensaje de comunicación de padre a hijo-->
+{{padreahijo}}<br>
+{{padreahijo}}
+
+<!--Botón para enviar evento de hijo a padre-->
+<button (click)="onEnviarEvento()">Enviar Evento de hijo a padre</button>
+
+<!--Mensaje si ocurre un error en la petición http-->
+<p>{{errorMessage}}</p>

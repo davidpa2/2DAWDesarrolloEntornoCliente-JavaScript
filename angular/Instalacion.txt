@@ -1,4 +1,14 @@
-Para instalar Angular:
-1.- npm install -g @angular/cli@latest
-Crear un nuevo proyecto
-2.- ng new {nombreproyecto}
+1.- Para instalar Angular:
+npm install -g @angular/cli@latest
+2.- Crear un nuevo proyecto
+ng new nombreproyecto
+3.- Ejecutar un proyecto angular:
+ng serve            Acceder desde el navegador con localhost:4200
+
+
+
+Añadir angular material al proyecto
+	ng add @angular/material
+
+Crear un nuevo componente
+	ng g c nombreCarpeta/nombreComponente

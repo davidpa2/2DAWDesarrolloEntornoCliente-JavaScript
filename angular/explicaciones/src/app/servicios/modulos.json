@@ -1,0 +1,8 @@
+[
+    {"id":1,"módulo":"DWEC","profesor":"Miguel Angel"},
+    {"id":2,"módulo":"DWES","profesor":"Antonio de la Rosa"},
+    {"id":3,"módulo":"EIE","profesor":"María Dolores"},
+    {"id":4,"módulo":"DIW","profesor":"Alberto Alarcón"},
+    {"id":5,"módulo":"DAW","profesor":"Alejandro Paniego"},
+    {"id":6,"módulo":"DAW2","profesor":"Alejandro Paniego2"}
+  ]

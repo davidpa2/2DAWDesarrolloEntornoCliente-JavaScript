@@ -1,0 +1,47 @@
+<div class="container contact-form mt-5">
+    <div class="contact-image">
+        <img src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+    </div>
+    <form method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="marca" class="form-control" placeholder="Marca *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="modelo" class="form-control" placeholder="Modelo *" value="" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="km" class="form-control" placeholder="Kilómetros *" value="" />
+                </div>
+                <div class="form-group">
+                    <select class="form-select form-control" aria-label="Default select example">
+                        <option selected>Selecciona un cliente</option>
+                        <option value="1">Francisco Fernández</option>
+                        <option value="2">David Parejo</option>
+                        <option value="3">Sabrina Ojea</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="nAverias" class="form-control" placeholder="Nº averías *" value="" />
+                </div>
+                <div class="form-group">
+                    <textarea name="txtMsg" class="form-control" placeholder="Descripción de la avería *"
+                        style="width: 100%; height: 150px;"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <input type="submit" name="annadirCoche" class="btnContact" value="Añadir coche" />
+            </div>
+            <div class="form-group col-md-6">
+                <input type="button" name="nuevoCliente" class="btnContact" value="¿Nuevo cliente?" />
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,35 @@
+#container {
+    width: 580px;
+    height: 250px;
+    margin: 0 auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.padre {
+    width: 580px;
+    height: 120px;
+    display: flex;
+}
+
+.coche {
+    margin: 10px;
+    height: 80px;
+    width: 160px;
+}
+
+body {
+    background-color: #4a4a49 !important;
+}
+
+.zona {
+    height: 25rem;
+    width: 25rem;
+}
+
+.plataforma {
+    background-color: lightgray;
+    margin: 10px;
+    height: 100px;
+    width: 130px;
+}
