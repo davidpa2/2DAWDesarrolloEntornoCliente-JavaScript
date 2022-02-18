@@ -6,12 +6,6 @@
   text-align: center;
 }
 
-.padre {
-  width: 580px;
-  height: 120px;
-  display: flex;
-}
-
 .coche {
   margin: 10px;
   height: 80px;
@@ -23,8 +17,8 @@ body {
 }
 
 .zona {
-  height: 25rem;
-  width: 25rem;
+  height: 20rem;
+  width: 38rem;
   border-width: 2px;
   border-style: solid;
   border-color: yellow;
@@ -34,5 +28,5 @@ body {
   background-color: lightgray;
   margin: 10px;
   height: 100px;
-  width: 130px;
+  width: 200px;
 }

@@ -1,7 +1,6 @@
 <div class="container bg-transparent contact-form mt-5">
     <div class="cabeceraImg">
-        <img
-            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+        <img src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
     </div>
     <form method="post" class="bg-transparent">
         <div class="row mb-1">
@@ -43,17 +42,46 @@
                 <img class="imgCoche"
                     src="https://static7.depositphotos.com/1062035/744/i/950/depositphotos_7447682-stock-photo-car-driving-fast.jpg">
             </div>
-            <div class="form-group col-md-8 d-flex justify-content-center">
+            <div class="form-group col-md-8 d-flex justify-content-center align-self-center">
                 <input type="file" name="annadirCoche" class="form-control" value="Añadir coche" />
             </div>
         </div>
 
         <div class="row mt-4">
             <div class="form-group col-md-6 d-flex justify-content-center">
-                <input type="submit" name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche" />
+                <input type="submit" name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche"
+                    id="btnAnnadirCoche" />
             </div>
             <div class="form-group col-md-6 d-flex justify-content-center">
-                <input type="button" name="nuevoCliente" class="btn btn-outline-warning rounded-pill" value="¿Nuevo cliente?" />
+                <input type="button" name="nuevoCliente" class="btn btn-outline-warning rounded-pill"
+                    value="¿Nuevo cliente?" id="btnNuevoCliente" (click)="showNewClientForm()"/>
+            </div>
+        </div>
+    </form>
+
+    <form method="post" class="bg-transparent d-none" id="formNewClient">
+        <div class="row mb-1">
+            <div class="form-group col-md-6">
+                <input type="text" name="marca" class="form-control" placeholder="Nombre *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="modelo" class="form-control" placeholder="Apellidos *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="km" class="form-control" placeholder="DNI *" value="" />
+            </div>
+            <div class="form-group col-md-6">
+                <input type="text" name="km" class="form-control" placeholder="Teléfono *" value="" />
+            </div>
+            <div class="form-group col">
+                <input type="text" name="km" class="form-control" placeholder="Email *" value="" />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group col d-flex justify-content-center">
+                <input type="button" name="nuevoCliente" class="btn btn-warning rounded-pill"
+                    value="Completar registro" />
             </div>
         </div>
     </form>

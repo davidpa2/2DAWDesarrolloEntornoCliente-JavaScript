@@ -1,0 +1,47 @@
+<div class="container bg-transparent contact-form mt-5">
+    <div class="cabeceraImg">
+        <img
+            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+    </div>
+    <form method="post" class="bg-transparent" action="">
+        <div class="row mb-1">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="nombre" class="form-control" value="Nombre: David" disabled/>
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" name="dni" class="form-control" value="DNI: 12345678R" disabled/>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="apellidos" class="form-control" value="Apellidos: Parejo Aliaga" disabled/>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="telefono" class="form-control" value="Tlf: 674 543 743 " disabled/>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-1">
+            <div class="form-group">
+                <input type="text" name="nAverias" class="form-control" value="Email: davilonmolon@gmail.com" disabled/>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group col d-flex justify-content-center">
+                <input type="submit" name="odificar" class="btn btn-warning rounded-pill" value="Modificar usuario" />
+            </div>
+        </div>
+    </form>
+
+    <table>
+        <tr *ngFor="let item of lista;let indice=index">
+          <td> {{indice+1}} 
+            <td>{{item}}</td>
+          </tr>
+        </table> 
+</div>

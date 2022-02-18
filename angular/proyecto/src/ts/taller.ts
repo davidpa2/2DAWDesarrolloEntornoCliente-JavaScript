@@ -1,4 +1,4 @@
-function allowDrop(ev:any) {
+/*function allowDrop(ev:any) {
     ev.preventDefault();
 }
 
@@ -19,4 +19,4 @@ function drop(ev:any) {
         console.log('hola')
         ev.dataTransfer.getData("text").draggable = false;
     }
-}
+}*/

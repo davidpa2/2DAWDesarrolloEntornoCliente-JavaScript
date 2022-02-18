@@ -15,9 +15,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { RegistroCocheComponent } from './components/registro-coche/registro-coche.component';
+import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 
 //Definir un array con las rutas que se usarán en la parte dinámica (router-outlet)
 const appRoutes: Routes = [
+  { path: 'PerfilUsuario', component:PerfilUsuarioComponent },
   { path: 'RegistrarCoche', component:RegistroCocheComponent },
   { path: 'Taller', component:TallerComponent },
   { path: '', redirectTo: '/Taller', pathMatch: 'full' },
@@ -31,6 +33,7 @@ const appRoutes: Routes = [
     TallerComponent,
     FooterComponent,
     RegistroCocheComponent,
+    PerfilUsuarioComponent,
   ],
   imports: [
     BrowserModule,
