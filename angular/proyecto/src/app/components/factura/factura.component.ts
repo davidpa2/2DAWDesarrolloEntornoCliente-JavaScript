@@ -14,12 +14,14 @@ export class FacturaComponent implements OnInit {
 
   //Función dedicada imprimir la sección de la factura
   imprimir() {
-    var newstr : HTMLElement = document.getElementById("impresion") as HTMLElement;
+    var newstr: HTMLElement = document.getElementById("impresion") as HTMLElement;
+    var template: HTMLElement = document.getElementById("plantillaImpresion") as HTMLElement;
     var oldstr = document.body.innerHTML;
-    document.body.innerHTML = newstr.innerHTML;
-    window.print();
-    document.body.innerHTML = oldstr;
-    window.location.href = "/Factura";
+    //Establecer como cuerpo del documento la plantilla más el div de contenido a imprimir 
+    document.body.innerHTML = template.innerHTML + newstr.innerHTML;
+    window.print(); //Abrir el modal de impresión con el cuerpo establecido
+    document.body.innerHTML = oldstr; //Es importante devolver el body como estaba 
+    window.location.href = "/Factura"; //Por cuestión de funcionalidad, mandar al mismo sitio y recargar
     //return false;
   }
 }
