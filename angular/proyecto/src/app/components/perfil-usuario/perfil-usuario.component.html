@@ -7,27 +7,29 @@
         <div class="row mb-1">
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" name="nombre" class="form-control" value="Nombre: David" disabled/>
+                    <input type="text" name="nombre" class="form-control" value="Nombre: David" disabled />
                 </div>
-                
+
                 <div class="form-group">
-                    <input type="text" name="dni" class="form-control" value="DNI: 12345678R" disabled/>
+                    <input type="text" name="dni" class="form-control" value="DNI: 12345678R" disabled />
                 </div>
             </div>
 
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" name="apellidos" class="form-control" value="Apellidos: Parejo Aliaga" disabled/>
+                    <input type="text" name="apellidos" class="form-control" value="Apellidos: Parejo Aliaga"
+                        disabled />
                 </div>
                 <div class="form-group">
-                    <input type="text" name="telefono" class="form-control" value="Tlf: 674 543 743 " disabled/>
+                    <input type="text" name="telefono" class="form-control" value="Tlf: 674 543 743 " disabled />
                 </div>
             </div>
         </div>
 
         <div class="row mb-1">
             <div class="form-group">
-                <input type="text" name="nAverias" class="form-control" value="Email: davilonmolon@gmail.com" disabled/>
+                <input type="text" name="nAverias" class="form-control" value="Email: davilonmolon@gmail.com"
+                    disabled />
             </div>
         </div>
 
@@ -37,11 +39,29 @@
             </div>
         </div>
     </form>
+</div>
+<div class="container">
+    <h1 class="white-title text-center">Facturas del usuario</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="card col-md-3 m-2" *ngFor="let nombre of nombres; let apellido of apellidos;">
+            <img class="card-img-top"
+                src="https://img2.freepng.es/20180301/ooe/kisspng-car-chevrolet-automotive-design-download-black-cool-car-top-5a9799abdbad04.4837611815198847158998.jpg">
+            <div class="card-img-overlay d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <h1 class="card-title">{{nombre}}</h1>
+                    </div>
 
-    <table>
-        <tr *ngFor="let item of lista;let indice=index">
-          <td> {{indice+1}} 
-            <td>{{item}}</td>
-          </tr>
-        </table> 
+                    <div class="col-12 d-flex justify-content-center">
+                        <p class="card-text"></p>
+                    </div>
+
+                    <div class="col-12 d-flex justify-content-center">
+                        <a routerLink="/Factura" class="btn btn-warning rounded-pill">Ver factura</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

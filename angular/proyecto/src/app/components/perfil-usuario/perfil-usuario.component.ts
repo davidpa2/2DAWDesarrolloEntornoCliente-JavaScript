@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
-  lista:string[]=["hola","que","tal","estas"];
+  nombres:string[]=["Paco","Juan","Valle","Fran","Sabri","David","DaniPA"];
+  apellidos:string[]=["Pérez","Gallardo","Lópes","Fenan","Ojea","Pajeou","Safra"];
 
   constructor() { }
 

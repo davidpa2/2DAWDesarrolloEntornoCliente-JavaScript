@@ -3,6 +3,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 body {
   margin: 0;
@@ -16,4 +17,62 @@ body {
 
 .bg-limon {
   background-color: #ffc506;
+}
+
+.white-title {
+  color: white;
+}
+
+hr {
+  border: 1px solid orange;
+  border-radius: 1px;
+}
+
+.contact-form {
+  background: #fff;
+  width: 70%;
+}
+.contact-form .form-control {
+  border-radius: 1rem;
+}
+
+.cabeceraImg {
+  text-align: center;
+}
+.cabeceraImg img {
+  border-radius: 4rem;
+  width: 17%;
+  margin-top: -3%;
+}
+.contact-form form {
+  padding: 50px;
+}
+.contact-form form .row {
+  margin-bottom: -7%;
+}
+.contact-form {
+  width: 60%;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.5%;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+
+.imgCoche {
+  border-radius: 5rem;
+  width: 10rem;
+}
+
+.form-control {
+  background: transparent;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+textarea {
+  resize: none;
 }
