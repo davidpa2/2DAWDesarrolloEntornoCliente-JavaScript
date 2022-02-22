@@ -15,9 +15,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegistroCocheComponent } from './components/registro-coche/registro-coche.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { FacturaComponent } from './components/factura/factura.component';
+import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 
 //Definir un array con las rutas que se usarán en la parte dinámica (router-outlet)
 const appRoutes: Routes = [
+  { path: 'Inicio', component:BienvenidaComponent },
   { path: 'Factura', component:FacturaComponent },
   { path: 'PerfilUsuario', component:PerfilUsuarioComponent },
   { path: 'RegistrarCoche', component:RegistroCocheComponent },
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
     RegistroCocheComponent,
     PerfilUsuarioComponent,
     FacturaComponent,
+    BienvenidaComponent,
   ],
   imports: [
     BrowserModule,

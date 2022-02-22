@@ -4,6 +4,7 @@ html,
 body {
   height: 100%;
   overflow-x: hidden;
+  cursor: crosshair;
 }
 body {
   margin: 0;
@@ -28,10 +29,6 @@ hr {
   border-radius: 1px;
 }
 
-.contact-form {
-  background: #fff;
-  width: 70%;
-}
 .contact-form .form-control {
   border-radius: 1rem;
 }
@@ -51,13 +48,10 @@ hr {
   margin-bottom: -7%;
 }
 .contact-form {
-  width: 60%;
   border: none;
   border-radius: 1rem;
   padding: 1.5%;
-  font-weight: 600;
   color: #fff;
-  cursor: pointer;
 }
 
 .imgCoche {
