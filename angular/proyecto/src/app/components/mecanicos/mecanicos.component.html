@@ -1,0 +1,12 @@
+<div class="container my-4">
+    <div class="row d-flex justify-content-center">
+        <h1 class="text-white text-center">Mecánicos contratados</h1>
+        <div class="card col-6" style="width:400px" *ngFor="let mecanico of mecanicos;">
+            <div class="card-body">
+                <h1 class="card-title">{{mecanico}}</h1>
+                <p class="card-text">Un mecánico más entre la lista</p>
+                <a routerLink="/PerfilUsuario" class="btn btn-warning rounded-pill">Ver perfil</a>
+            </div>
+        </div>
+    </div>
+</div>
