@@ -10,8 +10,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule, Routes } from '@angular/router';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { TallerComponent } from './components/taller/taller.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { TallerComponent } from './components/taller/taller.component';
 import { RegistroCocheComponent } from './components/registro-coche/registro-coche.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
 import { FacturaComponent } from './components/factura/factura.component';
@@ -38,8 +38,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    TallerComponent,
     FooterComponent,
+    TallerComponent,
     RegistroCocheComponent,
     PerfilUsuarioComponent,
     FacturaComponent,
