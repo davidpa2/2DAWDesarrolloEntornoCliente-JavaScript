@@ -19,7 +19,9 @@ import { BienvenidaComponent } from './components/bienvenida/bienvenida.componen
 import { RegistroComponent } from './components/registro/registro.component';
 import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
 
-//Definir un array con las rutas que se usarán en la parte dinámica (router-outlet)
+import { HttpClientModule } from '@angular/common/http';
+
+/*Definir un array con las rutas que se usarán en la parte dinámica (router-outlet)
 const appRoutes: Routes = [
   { path: 'Inicio', component:BienvenidaComponent },
   { path: 'Registro', component:RegistroComponent },
@@ -30,7 +32,7 @@ const appRoutes: Routes = [
   { path: 'Taller', component:TallerComponent },
   { path: '', redirectTo: '/Taller', pathMatch: 'full' },
   { path: '**', component: TallerComponent }
-]
+]*/
 
 @NgModule({
   declarations: [
@@ -49,9 +51,10 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     //Importar el módulo de rutas
     RouterModule,
-    RouterModule.forRoot(appRoutes),
+   // RouterModule.forRoot(appRoutes),
 
     MatToolbarModule,
   ],

@@ -2,6 +2,11 @@
     <div class="row d-flex justify-content-around">
         <div class="col-5 zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Vehículos en cola</h1>
+
+            <p>hola data:image/jpg;base64,{{listaCoches[0].fotoCoche}}</p>
+            <img *ngFor="let coche of listaCoches" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
+                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" name="fuego" />
+
             <img class="coche" src="https://i.pinimg.com/236x/5d/9d/3a/5d9d3a184cf865a4378844bd378d32a4--photoshop.jpg"
                 draggable="true" ondragstart="drag(event)" id="drag1" name="fuego" />
             <img class="coche"
@@ -33,4 +38,7 @@
             <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
     </div>
+</div>
+<div>
+    <p class="text-white">holaaaaaaaaaaaa {{listaCoches[0].marca}} {{listaCoches[0].modelo}}</p>
 </div>
