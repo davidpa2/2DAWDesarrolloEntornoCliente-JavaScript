@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CocheService } from 'src/app/services/coche.service';
-import { Coche } from 'src/app/interfaces/interfaces';
+import { coches } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-taller',
@@ -9,7 +9,7 @@ import { Coche } from 'src/app/interfaces/interfaces';
 })
 export class TallerComponent implements OnInit {
 
-  listaCoches: Coche[] = [];
+  listaCoches: coches[] = [];
 
   constructor(private cocheService: CocheService) { }
 
@@ -22,11 +22,15 @@ this.obtenerCoches();
       if(result['estado'] != "error"){
         console.log('hola hola');
         
-        result.listaCoches.forEach((c: Coche) => {
+        result.listaCoches.forEach((c: coches) => {
           this.listaCoches.push(c)
         });
       }
     })
+  }
+
+  async actualizarCoches(){
+    
   }
 }
 

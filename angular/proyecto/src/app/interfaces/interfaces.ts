@@ -1,4 +1,4 @@
-export interface Coche {
+export interface coches {
     id: number,
     marca: string,
     modelo: string,
@@ -7,6 +7,25 @@ export interface Coche {
     descripcionAveria: string,
     estado: string,
     fotoCoche: string,
-    cliente_id: number,
-    mecanico_id: number
+    fechaReparacion: string,
+    cliente_id: cliente,
+    mecanico_id: mecanicos
+}
+
+export interface mecanicos {
+    id: number,
+    nombre: string,
+    apellidos: string,
+    dni: string,
+    tlf: string,
+    rol: string,
+}
+
+export interface cliente {
+    id: number,
+    nombre: string,
+    apellidos: string,
+    dni: string,
+    tlf: string,
+    gmail: string,
 }

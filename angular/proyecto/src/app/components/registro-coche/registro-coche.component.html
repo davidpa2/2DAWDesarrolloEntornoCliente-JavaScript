@@ -1,87 +1,91 @@
 <div class="container bg-transparent contact-form my-5">
     <div class="cabeceraImg">
-        <img src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
+        <img
+            src="https://previews.123rf.com/images/djvstock/djvstock1709/djvstock170905146/85691310-destornillador-e-%C3%ADcono-de-la-llave-inglesa-.jpg" />
     </div>
-    <form method="post" class="bg-transparent">
+    <form method="POST" class="bg-transparent" [formGroup]="regForm">
         <div class="row mb-1">
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" name="marca" class="form-control" placeholder="Marca *" value="" />
+                    <input formControlName="marca" type="text" name="marca" class="form-control" placeholder="Marca *"
+                        value="" />
                 </div>
                 <div class="form-group">
-                    <input type="text" name="modelo" class="form-control" placeholder="Modelo *" value="" />
+                    <input formControlName="modelo" type="text" name="modelo" class="form-control"
+                        placeholder="Modelo *" value="" />
                 </div>
                 <div class="form-group">
-                    <input type="text" name="km" class="form-control" placeholder="Kilómetros *" value="" />
+                    <input formControlName="km" type="text" name="km" class="form-control" placeholder="Kilómetros *"
+                        value="" />
                 </div>
                 <div class="form-group">
-                    <select class="form-select form-control border-white">
-                        <option class="text-dark" selected>Selecciona un cliente
-                            <i class="bi bi-arrow-down-circle-fill"></i>
-                        </option>
-                        <option class="text-dark" value="1">Francisco Fernández</option>
-                        <option class="text-dark" value="2">David Parejo</option>
-                        <option class="text-dark" value="3">Sabrina Ojea</option>
+                    <select formControlName="cliente" class="form-select form-control border-white" name="cliente">
+                        <option class="text-dark" selected disabled>Selecciona un cliente</option>
+                        <option [value]="cliente.id" *ngFor="let cliente of listaClientes">{{cliente.nombre}} {{cliente.apellidos}} - {{cliente.dni}}</option>
                     </select>
                 </div>
             </div>
 
+            <input formControlName="mecanico" type="hidden" name="mecanico" value="1">
+
             <div class="col-md-6">
                 <div class="form-group">
-                    <input type="text" name="nAverias" class="form-control" placeholder="Nº averías *" value="" />
+                    <input formControlName="averias" type="number" name="averias" class="form-control"
+                        placeholder="Nº averías *" value="" />
                 </div>
                 <div class="form-group">
-                    <textarea name="txtMsg" class="form-control" placeholder="Descripción de la avería *"
-                        style="width: 100%; height: 115px;"></textarea>
+                    <textarea formControlName="descripcionAveria" name="descripcionAveria" class="form-control"
+                        placeholder="Descripción de la avería *" style="width: 100%; height: 115px;"></textarea>
                 </div>
             </div>
         </div>
 
         <div class="row mb-1">
-            <div class="col-md-4">
-                <img class="imgCoche" id="imgCoche"
-                    src="https://static7.depositphotos.com/1062035/744/i/950/depositphotos_7447682-stock-photo-car-driving-fast.jpg">
+            <div class="col-md-4 d-flex justify-content-center">
+                <img class="imgCoche d-none" id="imgCoche" src="data:image/jpg;base64,{{fotoCoche}}">
             </div>
             <div class="form-group col-md-8 d-flex justify-content-center align-self-center">
-                <input type="file" name="annadirCoche" class="form-control" value="Añadir coche" id="fotoCocheInput"/>
+                <input type="file" (change)="guardarImagen();" name="fotoCoche" class="form-control"
+                    value="Añadir coche" id="fotoCocheInput" />
             </div>
         </div>
 
+        <!--BOTONES-->
         <div class="row mt-4">
             <div class="form-group col-md-6 d-flex justify-content-center">
-                <input type="submit" name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche"
-                    id="btnAnnadirCoche" />
+                <input name="annadirCoche" class="btn btn-warning rounded-pill" value="Añadir coche"
+                    id="btnAnnadirCoche" (click)="registerCar()" />
             </div>
             <div class="form-group col-md-6 d-flex justify-content-center">
                 <input type="button" name="nuevoCliente" class="btn btn-outline-warning rounded-pill"
-                    value="¿Nuevo cliente?" id="btnNuevoCliente" (click)="showNewClientForm()"/>
+                    value="¿Nuevo cliente?" id="btnNuevoCliente" (click)="showNewClientForm()" />
             </div>
         </div>
     </form>
 
-    <form method="post" class="bg-transparent d-none" id="formNewClient">
+    <form [formGroup]="regForm2" method="POST" class="bg-transparent d-none" id="formNewClient">
         <div class="row mb-1">
             <div class="form-group col-md-6">
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre *" value="" />
+                <input formControlName="nombre" type="text" name="nombre" class="form-control" placeholder="Nombre *" value="" />
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="apellidos" class="form-control" placeholder="Apellidos *" value="" />
+                <input formControlName="apellidos" type="text" name="apellidos" class="form-control" placeholder="Apellidos *" value="" />
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="dni" class="form-control" placeholder="DNI *" value="" />
+                <input formControlName="dni" type="text" name="dni" class="form-control" placeholder="DNI *" value="" />
             </div>
             <div class="form-group col-md-6">
-                <input type="text" name="tlf" class="form-control" placeholder="Teléfono *" value="" />
+                <input formControlName="tlf" type="text" name="tlf" class="form-control" placeholder="Teléfono *" value="" />
             </div>
             <div class="form-group col">
-                <input type="text" name="email" class="form-control" placeholder="Email *" value="" />
+                <input formControlName="gmail" type="text" name="gmail" class="form-control" placeholder="Email *" value="" />
             </div>
         </div>
 
         <div class="row mt-4">
             <div class="form-group col d-flex justify-content-center">
                 <input type="button" name="nuevoCliente" class="btn btn-warning rounded-pill"
-                    value="Completar registro" />
+                    value="Completar registro" (click)="registerClient()"/>
             </div>
         </div>
     </form>
