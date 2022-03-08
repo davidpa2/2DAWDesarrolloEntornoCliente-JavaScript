@@ -21,6 +21,7 @@ import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistroMecanicosComponent } from './components/registro-mecanicos/registro-mecanicos.component';
 
 /*Definir un array con las rutas que se usarán en la parte dinámica (router-outlet)
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     BienvenidaComponent,
     RegistroComponent,
     MecanicosComponent,
+    RegistroMecanicosComponent,
   ],
   imports: [
     BrowserModule,

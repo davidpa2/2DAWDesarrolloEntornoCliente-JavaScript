@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CocheService } from 'src/app/services/coche.service';
 import { ClienteService } from 'src/app/services/cliente.service';
@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-coche.component.css']
 })
 export class RegistroCocheComponent implements OnInit {
+
+  idCliente: number;
 
   regForm: FormGroup;
   regForm2: FormGroup;
@@ -43,19 +45,25 @@ export class RegistroCocheComponent implements OnInit {
     })
   }
 
+  /**
+   * Registrar un nuevo cliente desde el formulario del componente
+   */
   registerClient(): void {
-
     this.serviceCliente.addClient(this.regForm2.value.nombre, this.regForm2.value.apellidos,
       this.regForm2.value.dni, this.regForm2.value.tlf, this.regForm2.value.gmail)
       .subscribe(result => {
         if (result['estado'] != "error") {
           console.log('Cliente insertado correctamente')
         }
+        this.idCliente = result['idCliente'];
       })
-
+      
     window.location.reload();
   }
 
+  /**
+   * Registrar coche obteniendo los datos desde el formulario del componente
+   */
   registerCar(): void {
 
     console.log(this.regForm.value.averias);
@@ -73,8 +81,10 @@ export class RegistroCocheComponent implements OnInit {
     //this.route.navigate(['/taller']);
   }
 
+  /**
+   * Método usado para convertir la imagen a 64bits
+   */
   guardarImagen() {
-
     let imgCoche: any = document.getElementById('imgCoche');
     imgCoche.classList.remove("d-none");
 
@@ -97,6 +107,9 @@ export class RegistroCocheComponent implements OnInit {
     };
   }
 
+  /**
+   * Obtener todos los clientes para poder cargarlos en el select
+   */
   listarClientes() {
     this.serviceCliente.getClientes().subscribe(result => {
       if (result['estado'] != "error") {
@@ -109,6 +122,9 @@ export class RegistroCocheComponent implements OnInit {
     })
   }
 
+  /**
+   * Mostrar u ocultar 
+   */
   showNewClientForm() {
     var btnAnnadirCoche = <HTMLElement>document.querySelector("#btnAnnadirCoche");
     var btnNuevoCliente = <HTMLElement>document.querySelector("#btnNuevoCliente");
