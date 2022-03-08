@@ -13,6 +13,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"></script>
   <script>
     function allowDrop(ev) {
       ev.preventDefault();
@@ -29,8 +30,17 @@
       console.log(ev.currentTarget.innerHTML);
 
       if (!ev.currentTarget.innerHTML) {
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+      var data = ev.dataTransfer.getData("text");
+      //console.log(data)
+      ev.target.appendChild(document.getElementById(data));
+
+      /*let options = {
+        method: "GET",
+        headers: { "Content-type": "application/json; charset=utf-8" },
+      };
+      let respuesta = await axios(`http://localhost:8080/actualizarEstadoCoche/${data}`, options);
+      let json = await respuesta.data;*/
+
       } else {
         console.log("hola");
         ev.dataTransfer.getData("text").draggable = false;
@@ -43,26 +53,6 @@
 
 <body class="mat-typography">
   <app-root></app-root>
-  <script>
-    //Mostrar la imagen cargada en el input-text del registro de coches
-    var inputImagen = document.getElementById("fotoCocheInput");
-    var imgCoche = document.getElementById("imgCoche");
-    inputImagen.addEventListener("change", function () {
-      // Los archivos seleccionados, pueden ser muchos o uno
-      const archivos = inputImagen.files;
-      // Si no hay archivos salimos de la función y quitamos la imagen
-      if (!archivos || !archivos.length) {
-        imgCoche.src = "";
-        return;
-      }
-      // Ahora tomamos el primer archivo, el cual vamos a previsualizar
-      const primerArchivo = archivos[0];
-      // Lo convertimos a un objeto de tipo objectURL
-      const objectURL = URL.createObjectURL(primerArchivo);
-      // Y a la fuente de la imagen le ponemos el objectURL
-      imgCoche.src = objectURL;
-    });
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>

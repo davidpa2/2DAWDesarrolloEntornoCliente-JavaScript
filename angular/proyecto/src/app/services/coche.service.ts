@@ -17,6 +17,21 @@ export class CocheService {
     return this.http.get<any>(this.url + '/listartodos');
   }
 
+  cochesEnCola(): Observable<any> {
+    //http.get() manda una solicitud http y devuelve un objeto Observable que emite los datos solicitados
+    return this.http.get<any>(this.url + '/cochesEnCola');
+  }
+
+  cochesEnReparacion(): Observable<any> {
+    //http.get() manda una solicitud http y devuelve un objeto Observable que emite los datos solicitados
+    return this.http.get<any>(this.url + '/cochesEnReparacion');
+  }
+
+  cochesCompletados(): Observable<any> {
+    //http.get() manda una solicitud http y devuelve un objeto Observable que emite los datos solicitados
+    return this.http.get<any>(this.url + '/cochesCompletados');
+  }
+
   addCar(marca: string, modelo: string, km: string, averias: number, descripcionAveria: string, fotoCoche: string,
     estado: string, fechaReparacion: string, mecanico: mecanicos, cliente: cliente): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
@@ -38,14 +53,5 @@ export class CocheService {
       cliente_id: coche.cliente,
     })
     return this.http.post<any>(this.url + '/registroCoche', jsonCoches, { headers: headers })
-  }
-
-  post(): Observable<any> {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-    var coche = {
-
-    }
-    return this.http.post<any>(this.url + '/listartodos', coche, { headers: headers })
-
   }
 }

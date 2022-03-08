@@ -4,8 +4,8 @@
             <h1 class="text-white text-center">Vehículos en cola</h1>
 
             <!--<p>hola data:image/jpg;base64,{{listaCoches[0].fotoCoche}}</p>-->
-            <img *ngFor="let coche of listaCoches" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
-                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" name="fuego" />
+            <img *ngFor="let coche of listaCochesEnCola" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
+                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" />
 
             <!--<img class="coche" src="https://i.pinimg.com/236x/5d/9d/3a/5d9d3a184cf865a4378844bd378d32a4--photoshop.jpg"
                 draggable="true" ondragstart="drag(event)" id="drag1" name="fuego" />
@@ -20,22 +20,18 @@
                 draggable="true" ondragstart="drag(event)" id="drag4" name="agua" /> -->
         </div>
 
-        <div class="col-5 bg-primary zona bg-transparent">
+        <div class="col-5 bg-primary zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Zona de reparación</h1>
-            <div class="row justify-content-center">
-                <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-                <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </div>
-            <div class="row d-flex justify-content-center">
-                <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </div>
+            <img *ngFor="let coche of listaCochesEnReparacion" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
+                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" />
         </div>
     </div>
 
     <div class="row my-2 d-flex justify-content-around">
-        <div class="col-5 zona bg-transparent">
+        <div class="col-5 zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Vehículos reparados</h1>
-            <div class="col-5 plataforma" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <img *ngFor="let coche of listaCochesCompletados" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
+                draggable="false" ondragstart="drag(event)" id="{{coche.id}}" />
         </div>
     </div>
 </div>
