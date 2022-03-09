@@ -31,3 +31,7 @@ export interface cliente {
     tlf: string,
     gmail: string,
 }
+
+export interface TokenJWT {
+    jwt: any
+}
