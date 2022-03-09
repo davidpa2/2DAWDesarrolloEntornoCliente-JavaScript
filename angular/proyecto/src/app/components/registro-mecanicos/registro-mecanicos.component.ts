@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MecanicoService } from 'src/app/services/mecanico.service';
 import { Router } from '@angular/router';
+import { mecanicos } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-registro-mecanicos',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./registro-mecanicos.component.css']
 })
 export class RegistroMecanicosComponent implements OnInit {
+
+  listaMecanicos: mecanicos[] = [];
 
   regForm: FormGroup;
 
@@ -40,5 +43,4 @@ export class RegistroMecanicosComponent implements OnInit {
     //this.route.navigate(['/listaMecanicos']);
     window.location.href = 'http://localhost:4200/listaMecanicos';
   }
-
 }

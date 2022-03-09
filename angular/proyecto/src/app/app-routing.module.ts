@@ -11,7 +11,7 @@ import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuar
 
 
 const routes: Routes = [ 
-  { path: '', redirectTo:'/taller', pathMatch:'full'},
+  { path: '', redirectTo:'/inicio', pathMatch:'full'},
   /*{ path: '**', component: TallerComponent },*/
   { path: 'taller', component:TallerComponent },
   { path: 'inicio', component:BienvenidaComponent },

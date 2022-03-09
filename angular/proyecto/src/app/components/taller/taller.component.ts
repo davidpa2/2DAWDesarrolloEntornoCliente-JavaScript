@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CocheService } from 'src/app/services/coche.service';
-import { coches } from 'src/app/interfaces/interfaces';
+import { coches, mecanicos } from 'src/app/interfaces/interfaces';
 import axios from 'axios';
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
@@ -11,6 +11,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class TallerComponent implements OnInit {
 
+  mecanico: mecanicos;
   listaCoches: coches[] = [];
   listaCochesEnCola: coches[] = [];
   listaCochesEnReparacion: coches[] = [];
@@ -29,14 +30,14 @@ export class TallerComponent implements OnInit {
    * Recoger el evento dragstart y ejecutar la función asíncrona para actualizar el estado del coche arrastrado
    * @param target 
    */
-  @HostListener('dragstart', ["$event.target"]) async drop(target) {
+  @HostListener('dragleave', ["$event.target"]) async drop(target) {
     let id = target.id;
 
     axios.get(`http://localhost:8080/actualizarEstadoCoche/${id}`).then(function(response) {
       console.log(response)
     })
     
-    window.location.href = 'http://localhost:4200/taller';
+   window.location.href = "/taller";
   }
 
   obtenerCoches() {
@@ -85,5 +86,9 @@ export class TallerComponent implements OnInit {
         });
       }
     })
+  }
+
+  recuperarUsuarioLog(){
+    this.mecanico = JSON.parse(localStorage.getItem("mecanicoAutentificado"))
   }
 }
