@@ -9,8 +9,6 @@ import { MecanicoService } from 'src/app/services/mecanico.service';
 })
 export class MecanicosComponent implements OnInit {
 
-  //mecanicos:string[]=["Paco","Juan","Valle","Fran","Sabri","David","DaniPA","Alehandro"];
-
   listaMecanicos: mecanicos[] = [];
   constructor(private mecanicoService: MecanicoService) { }
 

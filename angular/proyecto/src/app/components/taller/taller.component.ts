@@ -25,6 +25,10 @@ export class TallerComponent implements OnInit {
     this.cochesCompletados();
   }
 
+  /**
+   * Recoger el evento dragstart y ejecutar la función asíncrona para actualizar el estado del coche arrastrado
+   * @param target 
+   */
   @HostListener('dragstart', ["$event.target"]) async drop(target) {
     let id = target.id;
 

@@ -19,6 +19,8 @@ export interface mecanicos {
     dni: string,
     tlf: string,
     rol: string,
+    email: string,
+    password: string
 }
 
 export interface cliente {
