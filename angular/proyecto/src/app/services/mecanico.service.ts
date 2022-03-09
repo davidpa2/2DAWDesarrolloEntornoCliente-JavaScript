@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, Output, Input, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { mecanicos, TokenJWT } from '../interfaces/interfaces';
 
@@ -10,7 +10,7 @@ export class MecanicoService {
 
   usuarioAutenticado!: mecanicos; // Para almacenar el usuario autenticado
   @Output() cambiosEnMecanicosAutenticado = new EventEmitter<mecanicos>();
-  @Output() mostrarMecanico: EventEmitter<any> = new EventEmitter();
+  @Input() mostrarMecanico: EventEmitter<any> = new EventEmitter();
 
   JWT: TokenJWT;
 
@@ -42,6 +42,7 @@ export class MecanicoService {
   emitirNuevoCambioEnUsuarioAutenticado() {
     this.getUsuarioAutenticado().subscribe(usuarioAutenticado => {
       this.usuarioAutenticado = usuarioAutenticado;
+      localStorage.setItem('mecanicoAutentificado',JSON.stringify(usuarioAutenticado));
       this.cambiosEnMecanicosAutenticado.emit(usuarioAutenticado);
     });
   }
@@ -57,17 +58,8 @@ export class MecanicoService {
     return this.http.get<any>(this.url + '/listarMecanicos');
   }
 
-  buscarMecanicoId(id: number) {
-    let headers = new HttpHeaders().set('Content-Type', 'application/json');
-
-    let mecanico = {
-      id
-    }
-
-    let jsonMecanicos = JSON.stringify({
-      id: mecanico.id,
-    })
-    return this.http.post<any>(this.url + '/buscarMecanicoId', jsonMecanicos, { headers: headers })
+  buscarMecanicoId(id) {
+    return this.http.get<any>(this.url + '/buscarMecanicoId/' + id)
   }
 
   addMecanico(nombre: string, apellidos: string, dni: string, tlf: string, rol: string, email: string, password: string): Observable<any> {

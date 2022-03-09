@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { mecanicos } from 'src/app/interfaces/interfaces';
 import { MecanicoService } from 'src/app/services/mecanico.service';
 
@@ -27,5 +27,4 @@ export class MecanicosComponent implements OnInit {
       }
     })
   }
-
 }
