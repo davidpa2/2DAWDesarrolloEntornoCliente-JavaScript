@@ -17,6 +17,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.recuperarUsuarioLog();
 
+    //Protección de rutas
+    if (this.mecanico != null) {
+      this.router.navigate(['/taller']);
+    }
+    if (this.mecanico == null) {
+      this.router.navigate(['/inicio']);
+    }
+
     this.mecanicoService.cambiosEnMecanicosAutenticado.subscribe(data => {
       console.log('Hay un cambio en el usuario autenticado');
       console.log(this.mecanicoService.usuarioAutenticado.email);
