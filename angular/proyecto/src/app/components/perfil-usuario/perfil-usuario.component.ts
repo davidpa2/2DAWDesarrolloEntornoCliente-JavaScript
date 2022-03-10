@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { mecanicos } from 'src/app/interfaces/interfaces';
+import { coches, mecanicos } from 'src/app/interfaces/interfaces';
+import { CocheService } from 'src/app/services/coche.service';
 import { MecanicoService } from 'src/app/services/mecanico.service';
 
 @Component({
@@ -18,11 +19,13 @@ export class PerfilUsuarioComponent implements OnInit {
   tlf: String
   email: String
 
+  listaFacturas: coches[] = [];
+
   regForm: FormGroup;
   /*nombres:string[]=["Paco","Juan","Valle","Fran","Sabri","David","DaniPA"];
   apellidos:string[]=["Pérez","Gallardo","Lópes","Fenan","Ojea","Pajeou","Safra"];*/
 
-  constructor(public serviceMecanico: MecanicoService, private ruta: ActivatedRoute) { }
+  constructor(public serviceMecanico: MecanicoService, private cocheService: CocheService, private ruta: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.mostrarMecanico();
@@ -35,6 +38,8 @@ export class PerfilUsuarioComponent implements OnInit {
       tlf: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required])
     })
+
+    
   }
 
   mostrarMecanico(): void {
@@ -48,6 +53,7 @@ export class PerfilUsuarioComponent implements OnInit {
           this.dni = m.dni
           this.tlf = m.tlf
           this.email = m.email
+          this.obtenerFacturas(m.id);
         });
       }
     })
@@ -66,7 +72,8 @@ export class PerfilUsuarioComponent implements OnInit {
       })
 
     //this.route.navigate(['/listaMecanicos']);
-    window.location.href = `http://localhost:4200/perfilUsuario/${this.id}`;
+    window.location.reload();
+    /*window.location.href = `http://localhost:4200/perfilUsuario/${this.id}`;*/
   }
 
   despedirMecanico(): void {
@@ -79,5 +86,19 @@ export class PerfilUsuarioComponent implements OnInit {
 
     //this.route.navigate(['/listaMecanicos']);
     window.location.href = 'http://localhost:4200/listaMecanicos';
+  }
+
+  obtenerFacturas(id) {
+    this.cocheService.getFacturas(id).subscribe(result => {
+      if (result['estado'] != "error") {
+        console.log('hola hola');
+
+        result.listaFacturas.forEach((c: coches) => {
+          this.listaFacturas.push(c)
+        });
+        console.log(this.listaFacturas);
+        
+      }
+    })
   }
 }

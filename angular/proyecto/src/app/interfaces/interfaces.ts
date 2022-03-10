@@ -8,6 +8,7 @@ export interface coches {
     estado: string,
     fotoCoche: string,
     fechaReparacion: string,
+    costeReparacion: string,
     cliente_id: cliente,
     mecanico_id: mecanicos
 }
