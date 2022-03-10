@@ -19,14 +19,12 @@
                         value="" />
                 </div>
                 <div class="form-group">
-                    <select formControlName="cliente" class="form-select form-control border-white" name="cliente">
+                    <select (change)="recuperarClienteSeleccionado();" formControlName="cliente" class="form-select form-control border-white" name="cliente">
                         <option class="text-dark" selected disabled>Selecciona un cliente</option>
                         <option [value]="cliente.id" *ngFor="let cliente of listaClientes">{{cliente.nombre}} {{cliente.apellidos}} - {{cliente.dni}}</option>
                     </select>
                 </div>
             </div>
-
-            <input formControlName="mecanico" type="hidden" name="mecanico" value="1">
 
             <div class="col-md-6">
                 <div class="form-group">

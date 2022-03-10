@@ -2,8 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CocheService } from 'src/app/services/coche.service';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { cliente, coches } from 'src/app/interfaces/interfaces';
+import { cliente, coches, mecanicos } from 'src/app/interfaces/interfaces';
 import { Router } from '@angular/router';
+import { MecanicoService } from 'src/app/services/mecanico.service';
 
 @Component({
   selector: 'app-registro-coche',
@@ -18,11 +19,15 @@ export class RegistroCocheComponent implements OnInit {
   regForm2: FormGroup;
   fotoCoche: string;
   listaClientes: cliente[] = [];
+  cliente: cliente;
+  mecanico: mecanicos;
   //coche: Coche = new Coche();
 
-  constructor(public service: CocheService, public serviceCliente: ClienteService, private route: Router) { }
+  constructor(public service: CocheService, public serviceCliente: ClienteService,
+    public serviceMecanico: MecanicoService, private route: Router) { }
 
   ngOnInit(): void {
+    this.recuperarUsuarioLog();
     this.listarClientes();
 
     this.regForm = new FormGroup({
@@ -33,7 +38,6 @@ export class RegistroCocheComponent implements OnInit {
       averias: new FormControl('', [Validators.required]),
       descripcionAveria: new FormControl('', [Validators.required]),
       fotoCoche: new FormControl('', [Validators.required]),
-      mecanico: new FormControl('', [Validators.required])
     })
 
     this.regForm2 = new FormGroup({
@@ -57,7 +61,7 @@ export class RegistroCocheComponent implements OnInit {
         }
         this.idCliente = result['idCliente'];
       })
-      
+
     window.location.reload();
   }
 
@@ -65,12 +69,9 @@ export class RegistroCocheComponent implements OnInit {
    * Registrar coche obteniendo los datos desde el formulario del componente
    */
   registerCar(): void {
-
-    console.log(this.regForm.value.averias);
-
     this.service.addCar(this.regForm.value.marca, this.regForm.value.modelo, this.regForm.value.km,
-      this.regForm.value.averias, this.regForm.value.descripcionAveria, this.fotoCoche, "en cola", null, null,
-      this.listaClientes[this.regForm.value.cliente - 1])
+      this.regForm.value.averias, this.regForm.value.descripcionAveria, this.fotoCoche, "en cola", null,
+      this.mecanico, this.cliente)
       .subscribe(result => {
         if (result['estado'] != "error") {
           console.log('Coche insertado correctamente')
@@ -103,7 +104,6 @@ export class RegistroCocheComponent implements OnInit {
         //reduce() Aplica una función a un acumulador y a cada valor de un array (de izquierda a derecha) lo reduce a un único valor.
         new Uint8Array(e.target.result).reduce((data, byte) => data + String.fromCharCode(byte), '')
       );
-      console.log(this.fotoCoche);
     };
   }
 
@@ -113,8 +113,6 @@ export class RegistroCocheComponent implements OnInit {
   listarClientes() {
     this.serviceCliente.getClientes().subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaClientes.forEach((c: cliente) => {
           this.listaClientes.push(c)
         });
@@ -123,7 +121,7 @@ export class RegistroCocheComponent implements OnInit {
   }
 
   /**
-   * Mostrar u ocultar 
+   * Mostrar u ocultar el formulario de registro de un nuevo cliente
    */
   showNewClientForm() {
     var btnAnnadirCoche = <HTMLElement>document.querySelector("#btnAnnadirCoche");
@@ -146,5 +144,24 @@ export class RegistroCocheComponent implements OnInit {
         btnNuevoCliente.setAttribute("value", "¿Nuevo cliente?");
       }
     });
+  }
+
+  /**
+   * Al seleccionar un cliente del select, guardar en this.cliente el cliente seleccionado
+   */
+  recuperarClienteSeleccionado(): void {
+    this.serviceCliente.findById(this.regForm.value.cliente).subscribe(result => {
+      if (result['estado'] != "error") {
+        this.cliente = result['cliente'];
+        console.log(result['cliente'])
+      }
+    })
+  }
+
+  /**
+   * Para registrar un coche es necesario saber qué mecánico ha iniciado sesión
+   */
+  recuperarUsuarioLog() {
+    this.mecanico = JSON.parse(localStorage.getItem("mecanicoAutentificado"))
   }
 }

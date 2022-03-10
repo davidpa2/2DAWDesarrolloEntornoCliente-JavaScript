@@ -49,8 +49,8 @@ export class CocheService {
       fotoCoche: coche.fotoCoche,
       estado: coche.estado,
       fechaReparacion: coche.fechaReparacion,
-      mecanico_id: coche.mecanico,
-      cliente_id: coche.cliente,
+      mecanico: coche.mecanico,
+      cliente: coche.cliente,
     })
     return this.http.post<any>(this.url + '/registroCoche', jsonCoches, { headers: headers })
   }

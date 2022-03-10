@@ -32,4 +32,8 @@ export class ClienteService {
     })
     return this.http.post<any>(this.url + '/registroCliente', jsonClientes, { headers: headers })
   }
+
+  findById(id) {
+    return this.http.get<any>(`${this.url}/clientePorId/${id}`)
+  }
 }
