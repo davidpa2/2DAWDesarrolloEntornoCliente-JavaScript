@@ -5,7 +5,8 @@
 
             <!--<p>hola data:image/jpg;base64,{{listaCoches[0].fotoCoche}}</p>-->
             <img *ngFor="let coche of listaCochesEnCola" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
-                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" />
+                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="{{coche.marca}} {{coche.modelo}}" />
 
             <!--<img class="coche" src="https://i.pinimg.com/236x/5d/9d/3a/5d9d3a184cf865a4378844bd378d32a4--photoshop.jpg"
                 draggable="true" ondragstart="drag(event)" id="drag1" name="fuego" />
@@ -24,7 +25,8 @@
             <h1 class="text-white text-center">Zona de reparación</h1>
             <img *ngFor="let coche of listaCochesEnReparacion" class="coche"
                 src="data:image/jpg;base64,{{coche.fotoCoche}}" draggable="true" ondragstart="drag(event)"
-                id="{{coche.id}}" />
+                id="{{coche.id}}"  data-bs-toggle="tooltip"
+                data-bs-placement="bottom" title="{{coche.marca}} {{coche.modelo}}"/>
         </div>
     </div>
 
@@ -33,7 +35,8 @@
             <h1 class="text-white text-center">Vehículos reparados</h1>
             <span *ngFor="let coche of listaCochesCompletados">
                 <img class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}" draggable="false"
-                    ondragstart="drag(event)" id="{{coche.id}}" />
+                    ondragstart="drag(event)" id="{{coche.id}}"  data-bs-toggle="tooltip"
+                    data-bs-placement="bottom" title="{{coche.marca}} {{coche.modelo}}"/>
                 <button [routerLink]="['/factura', coche.id]" class="btn btn-warning rounded-pill">Ver
                     factura</button>
             </span>

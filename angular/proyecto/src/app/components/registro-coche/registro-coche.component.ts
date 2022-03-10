@@ -61,8 +61,7 @@ export class RegistroCocheComponent implements OnInit {
         }
         this.idCliente = result['idCliente'];
       })
-
-    window.location.reload();
+    window.location.href = "/registrarCoche";
   }
 
   /**

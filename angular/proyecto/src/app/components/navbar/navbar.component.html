@@ -30,10 +30,10 @@
     </div>
     <div class="col-3">
       <span *ngIf="mecanico==null" class="d-flex justify-content-end">
-        <button class="nav-link btn btn-warning rounded-pill" routerLink="/inicio">Iniciar sesión</button>
+        <button class="nav-link btn btn-warning rounded-pill botonNav" routerLink="/inicio">Iniciar sesión</button>
       </span>
       <span *ngIf="mecanico!=null" class="d-flex justify-content-end">
-        <button (click)="cerrarSesion()" class="nav-link btn btn-warning rounded-pill">Cerrar sesión</button>
+        <button (click)="cerrarSesion()" class="nav-link btn btn-warning rounded-pill botonNav">Cerrar sesión</button>
       </span>
     </div>
   </div>

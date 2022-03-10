@@ -43,8 +43,6 @@ export class TallerComponent implements OnInit {
   obtenerCoches() {
     this.cocheService.get().subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaCoches.forEach((c: coches) => {
           this.listaCoches.push(c)
         });
@@ -55,8 +53,6 @@ export class TallerComponent implements OnInit {
   cochesEnCola() {
     this.cocheService.cochesEnCola().subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaCochesEnCola.forEach((c: coches) => {
           this.listaCochesEnCola.push(c)
         });
@@ -67,8 +63,6 @@ export class TallerComponent implements OnInit {
   cochesEnReparacion() {
     this.cocheService.cochesEnReparacion().subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaCochesEnReparacion.forEach((c: coches) => {
           this.listaCochesEnReparacion.push(c)
         });
@@ -79,8 +73,6 @@ export class TallerComponent implements OnInit {
   cochesCompletados() {
     this.cocheService.cochesCompletados().subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaCochesCompletados.forEach((c: coches) => {
           this.listaCochesCompletados.push(c)
         });

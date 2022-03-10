@@ -72,8 +72,9 @@ export class PerfilUsuarioComponent implements OnInit {
       })
 
     //this.route.navigate(['/listaMecanicos']);
-    window.location.reload();
+    //window.location.reload();
     /*window.location.href = `http://localhost:4200/perfilUsuario/${this.id}`;*/
+    window.history.back();
   }
 
   despedirMecanico(): void {
@@ -83,9 +84,7 @@ export class PerfilUsuarioComponent implements OnInit {
           console.log('Mecanico despedido correctamente')
         }
       })
-
-    //this.route.navigate(['/listaMecanicos']);
-    window.location.href = 'http://localhost:4200/listaMecanicos';
+    window.history.back();
   }
 
   obtenerFacturas(id) {
