@@ -21,6 +21,10 @@ export class CocheService {
     return this.http.get<any>(`${this.url}/facturasMecanico/${id}`);
   }
 
+  getPorId(id): Observable<any> {
+    return this.http.get<any>(`${this.url}/findById/${id}`);
+  }
+
   cochesEnCola(): Observable<any> {
     //http.get() manda una solicitud http y devuelve un objeto Observable que emite los datos solicitados
     return this.http.get<any>(this.url + '/cochesEnCola');

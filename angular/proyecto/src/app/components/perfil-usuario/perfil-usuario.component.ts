@@ -91,13 +91,9 @@ export class PerfilUsuarioComponent implements OnInit {
   obtenerFacturas(id) {
     this.cocheService.getFacturas(id).subscribe(result => {
       if (result['estado'] != "error") {
-        console.log('hola hola');
-
         result.listaFacturas.forEach((c: coches) => {
           this.listaFacturas.push(c)
-        });
-        console.log(this.listaFacturas);
-        
+        });      
       }
     })
   }

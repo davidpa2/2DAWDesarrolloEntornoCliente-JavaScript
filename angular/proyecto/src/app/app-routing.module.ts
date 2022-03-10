@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'inicio', component:BienvenidaComponent },
   { path: 'registro', component:RegistroComponent },
   { path: 'registrarCoche', component:RegistroCocheComponent },
-  { path: 'factura', component:FacturaComponent },
+  { path: 'factura/:idCoche', component:FacturaComponent },
   { path: 'listaMecanicos', component:MecanicosComponent },
   { path: 'perfilUsuario/:id', component:PerfilUsuarioComponent },
   { path: 'registrarMecanico', component:RegistroMecanicosComponent },

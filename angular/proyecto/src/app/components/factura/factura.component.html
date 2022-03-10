@@ -11,40 +11,53 @@
     </div>
 </div>
 
+<div id="plantillaImpresion2" class="d-none">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <hr>
+            <p class="text-white text-center">Firma del mecánico:</p>
+        </div>
+    </div>
+</div>
+
+<div id="plantillaImpresion3" class="d-none">
+    <div class="row d-flex justify-content-center">
+        <div class="col-8">
+            <p class="text-white text-center" id="pCoste"></p>
+        </div>
+    </div>
+</div>
+
 <div class="container mt-4" id="impresion">
     <div class="row d-flex justify-content-center">
         <h1 class="white-title text-center">Datos del cliente:</h1>
         <div class="col-4 text-white">
-            <p>Nombre: David</p>
-            <p>DNI: 27435365G</p>
-            <p>Gmail: parejoteelgrandavid@gmail.com</p>
+            <p>Nombre: {{cliente.nombre}}</p>
+            <p>DNI: {{cliente.dni}}</p>
+            <p>Gmail: {{cliente.gmail}}</p>
         </div>
         <div class="col-2 text-white">
-            <p>Apellidos: Parejo Aliaga</p>
-            <p>Teléfono: 684 434 831</p>
-            <p>Mecánico: Manuel Padilla</p>
+            <p>Apellidos: {{cliente.apellidos}}</p>
+            <p>Teléfono: {{cliente.tlf}}</p>
+            <p>Mecánico: {{mecanico.nombre}} {{mecanico.apellidos}}</p>
         </div>
     </div>
 
     <div class="row d-flex justify-content-center pt-4">
         <h1 class="white-title text-center">Datos del vehículo</h1>
         <div class="col-4 text-white">
-            <p>Marca: Fiat</p>
-            <p>Kilómetros: 14749 km</p>
+            <p>Marca: {{coche.marca}}</p>
+            <p>Kilómetros: {{coche.km}}</p>
 
         </div>
         <div class="col-2 text-white">
-            <p>Modelo: Punto</p>
-            <p>Averías: 3</p>
+            <p>Modelo: {{coche.modelo}}</p>
+            <p>Averías: {{coche.averias}}</p>
         </div>
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-6 text-white">Descripción de las averías:<br>
-            <ul>
-                <li>Pérdida de agua por el fuelle que conecta el motor con el radiador</li>
-                <li>Cambio de aceite y filtro del aire</li>
-                <li>Error en los pilotos traseros</li>
-            </ul>
+            <p>{{coche.descripcionAveria}}</p>
             <hr>
         </div>
     </div>
@@ -56,7 +69,7 @@
                 value="Imprimir factura">Imprimir factura</button>
         </div>
         <div class="col-3 d-flex justify-content-center">
-            <button routerLink="/PerfilUsuario" name="nuevoCliente" class="btn btn-outline-warning rounded-pill"
+            <button (click)="volver()" name="nuevoCliente" class="btn btn-outline-warning rounded-pill"
                 value="Imprimir factura">Volver</button>
         </div>
     </div>
