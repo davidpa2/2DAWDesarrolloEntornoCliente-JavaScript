@@ -11,6 +11,7 @@ import { MecanicoService } from 'src/app/services/mecanico.service';
 })
 export class PerfilUsuarioComponent implements OnInit {
 
+  id: number
   nombre: String
   apellidos: String
   dni: String
@@ -27,6 +28,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.mostrarMecanico();
 
     this.regForm = new FormGroup({
+      id: new FormControl('', [Validators.required]),
       nombre: new FormControl('', [Validators.required]),
       apellidos: new FormControl('', [Validators.required]),
       dni: new FormControl('', [Validators.required]),
@@ -40,6 +42,7 @@ export class PerfilUsuarioComponent implements OnInit {
     this.serviceMecanico.buscarMecanicoId(id).subscribe(result => {
       if (result['estado'] != "error") {
         result.listaMecanicos.forEach((m: mecanicos) => {
+          this.id = m.id
           this.nombre = m.nombre
           this.apellidos = m.apellidos
           this.dni = m.dni
@@ -48,5 +51,33 @@ export class PerfilUsuarioComponent implements OnInit {
         });
       }
     })
+  }
+
+  /**
+   * Registrar un nuevo cliente desde el formulario del componente
+   */
+  modificarMecanico(): void {
+    this.serviceMecanico.modificarMecanico(this.id, this.regForm.value.nombre, this.regForm.value.apellidos,
+      this.regForm.value.dni, this.regForm.value.tlf)
+      .subscribe(result => {
+        if (result['estado'] != "error") {
+          console.log('Mecanico modificado correctamente')
+        }
+      })
+
+    //this.route.navigate(['/listaMecanicos']);
+    window.location.href = `http://localhost:4200/perfilUsuario/${this.id}`;
+  }
+
+  despedirMecanico(): void {
+    this.serviceMecanico.despedirMecanico(this.id)
+      .subscribe(result => {
+        if (result['estado'] != "error") {
+          console.log('Mecanico despedido correctamente')
+        }
+      })
+
+    //this.route.navigate(['/listaMecanicos']);
+    window.location.href = 'http://localhost:4200/listaMecanicos';
   }
 }

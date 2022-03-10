@@ -42,26 +42,41 @@ export class MecanicoService {
   emitirNuevoCambioEnUsuarioAutenticado() {
     this.getUsuarioAutenticado().subscribe(usuarioAutenticado => {
       this.usuarioAutenticado = usuarioAutenticado;
-      localStorage.setItem('mecanicoAutentificado',JSON.stringify(usuarioAutenticado));
+      localStorage.setItem('mecanicoAutentificado', JSON.stringify(usuarioAutenticado));
       this.cambiosEnMecanicosAutenticado.emit(usuarioAutenticado);
     });
   }
 
 
-
-
-
-
-
+  /**
+   * 
+   * @returns lista de mecánicos
+   */
   listarMecanicos(): Observable<any> {
     //http.get() manda una solicitud http y devuelve un objeto Observable que emite los datos solicitados
     return this.http.get<any>(this.url + '/listarMecanicos');
   }
 
+  /**
+   * Buscar un mecánico por su id
+   * @param id 
+   * @returns 
+   */
   buscarMecanicoId(id) {
     return this.http.get<any>(this.url + '/buscarMecanicoId/' + id)
   }
 
+  /**
+   * Añadir un mecánico
+   * @param nombre 
+   * @param apellidos 
+   * @param dni 
+   * @param tlf 
+   * @param rol 
+   * @param email 
+   * @param password 
+   * @returns 
+   */
   addMecanico(nombre: string, apellidos: string, dni: string, tlf: string, rol: string, email: string, password: string): Observable<any> {
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -79,5 +94,40 @@ export class MecanicoService {
       password: mecanico.password
     })
     return this.http.post<any>(this.url + '/registroMecanico', jsonMecanicos, { headers: headers })
+  }
+
+  /**
+   * Modificar los datos de un mecánico
+   * @param id 
+   * @param nombre 
+   * @param apellidos 
+   * @param dni 
+   * @param tlf 
+   * @returns 
+   */
+  modificarMecanico(id: number, nombre: string, apellidos: string, dni: string, tlf: string): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    let mecanico = {
+      id, nombre, apellidos, dni, tlf
+    }
+
+    let jsonMecanicos = JSON.stringify({
+      id: mecanico.id,
+      nombre: mecanico.nombre,
+      apellidos: mecanico.apellidos,
+      dni: mecanico.dni,
+      tlf: mecanico.tlf,
+    })
+    return this.http.post<any>(this.url + '/modificarMecanico', jsonMecanicos, { headers: headers })
+  }
+
+  /**
+   * Despedir un mecánico
+   * @param id para encontrar er el servidor el mecánico a despedir
+   * @returns 
+   */
+  despedirMecanico(id: number): Observable<any> {
+    return this.http.get<any>(`${this.url}/despedirMecanico/${id}`)
   }
 }
