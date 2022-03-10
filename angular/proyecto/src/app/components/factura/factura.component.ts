@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { cliente, coches, mecanicos } from 'src/app/interfaces/interfaces';
 import { CocheService } from 'src/app/services/coche.service';
 
@@ -13,11 +14,22 @@ export class FacturaComponent implements OnInit {
   coche: coches;
   cliente: cliente;
   mecanico: mecanicos;
+  regForm: FormGroup;
 
-  constructor(private cocheService: CocheService, private ruta: ActivatedRoute) { }
+  constructor(private cocheService: CocheService, private ruta: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerFactura();
+
+    this.regForm = new FormGroup({
+      coste: new FormControl('', [Validators.required]),
+    })
+
+    if (this.coche.costeReparacion != '0') {
+      var btnImprimir = document.getElementById('imprimir') as HTMLElement;
+
+      btnImprimir.setAttribute('disabled', 'true');
+    }
   }
 
   obtenerFactura(): void {
@@ -28,10 +40,6 @@ export class FacturaComponent implements OnInit {
         this.cliente = result['coche'].cliente;
         this.mecanico = result['coche'].mecanico;
         console.log(result['coche'])
-        /*result.listaMecanicos.forEach((c: coches) => {
-          this.coche = c;
-          console.log(c)
-        });*/
       }
     })
   }
@@ -40,16 +48,40 @@ export class FacturaComponent implements OnInit {
   imprimir() {
     var newstr: HTMLElement = document.getElementById("impresion") as HTMLElement;
     var template: HTMLElement = document.getElementById("plantillaImpresion") as HTMLElement;
+    var template2: HTMLElement = document.getElementById("plantillaImpresion2") as HTMLElement;
+    var template3: HTMLElement = document.getElementById("plantillaImpresion3") as HTMLElement;
     var oldstr = document.body.innerHTML;
+
+    //A la plantilla del coste hay que añadirle el precio que se haya establecido
+    var pCosteAveria: HTMLElement = document.getElementById("pCoste") as HTMLElement;
+    pCosteAveria.innerText = this.coche.costeReparacion + "€";
+
     //Establecer como cuerpo del documento la plantilla más el div de contenido a imprimir 
-    document.body.innerHTML = template.innerHTML + newstr.innerHTML;
+    document.body.innerHTML = template.innerHTML + newstr.innerHTML + template3.innerHTML + template2.innerHTML;
     window.print(); //Abrir el modal de impresión con el cuerpo establecido
     document.body.innerHTML = oldstr; //Es importante devolver el body como estaba 
-    window.location.href = "/Factura"; //Por cuestión de funcionalidad, mandar al mismo sitio y recargar
+    //window.history.back(); //Por cuestión de funcionalidad, mandar al mismo sitio y recargar
+    //this.router.navigate([`/perfilUsuario/${this.cliente.id}`])
+    this.router.navigate([`/taller`])
     //return false;
   }
-  
+
   volver() {
     window.history.back();
+  }
+
+  actualizarCoste() {
+    var inputCosteAveria = document.getElementById('costeAveria') as HTMLElement;
+    var btnImprimir = document.getElementById('imprimir') as HTMLElement;
+
+    btnImprimir.removeAttribute('disabled');
+    inputCosteAveria.setAttribute('disabled', 'true');
+
+    this.cocheService.actualizarCosteReparacion(this.coche.id, this.regForm.value.coste)
+      .subscribe(result => {
+        if (result['estado'] != "error") {
+          console.log('Coste modificado correctamente')
+        }
+      })
   }
 }

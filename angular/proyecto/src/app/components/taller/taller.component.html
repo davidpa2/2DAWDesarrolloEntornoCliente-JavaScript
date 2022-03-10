@@ -22,16 +22,21 @@
 
         <div class="col-5 bg-primary zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Zona de reparación</h1>
-            <img *ngFor="let coche of listaCochesEnReparacion" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
-                draggable="true" ondragstart="drag(event)" id="{{coche.id}}" />
+            <img *ngFor="let coche of listaCochesEnReparacion" class="coche"
+                src="data:image/jpg;base64,{{coche.fotoCoche}}" draggable="true" ondragstart="drag(event)"
+                id="{{coche.id}}" />
         </div>
     </div>
 
     <div class="row my-2 d-flex justify-content-around">
         <div class="col-5 zona bg-transparent" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h1 class="text-white text-center">Vehículos reparados</h1>
-            <img *ngFor="let coche of listaCochesCompletados" class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}"
-                draggable="false" ondragstart="drag(event)" id="{{coche.id}}" />
+            <span *ngFor="let coche of listaCochesCompletados">
+                <img class="coche" src="data:image/jpg;base64,{{coche.fotoCoche}}" draggable="false"
+                    ondragstart="drag(event)" id="{{coche.id}}" />
+                <button [routerLink]="['/factura', coche.id]" class="btn btn-warning rounded-pill">Ver
+                    factura</button>
+            </span>
         </div>
     </div>
 </div>

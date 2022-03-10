@@ -34,20 +34,10 @@
       //console.log(data)
       ev.target.appendChild(document.getElementById(data));
 
-      /*let options = {
-        method: "GET",
-        headers: { "Content-type": "application/json; charset=utf-8" },
-      };
-      let respuesta = await axios(`http://localhost:8080/actualizarEstadoCoche/${data}`, options);
-      let json = await respuesta.data;*/
-
       } else {
-        console.log("hola");
         ev.dataTransfer.getData("text").draggable = false;
       }
     }
-
-    console.log('hola')
   </script>
 </head>
 

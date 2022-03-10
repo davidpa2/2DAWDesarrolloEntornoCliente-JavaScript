@@ -62,4 +62,8 @@ export class CocheService {
     })
     return this.http.post<any>(this.url + '/registroCoche', jsonCoches, { headers: headers })
   }
+
+  actualizarCosteReparacion(id: number, coste: String): Observable<any> {
+    return this.http.get<any>(`${this.url}/actualizarCosteReparacion/${id}/${coste}`);
+  }
 }
