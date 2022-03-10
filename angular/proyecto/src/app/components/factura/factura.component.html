@@ -35,9 +35,9 @@
         <div class="col-4 text-white">
             <p>Nombre: {{cliente.nombre}}</p>
             <p>DNI: {{cliente.dni}}</p>
-            <p>Gmail: {{cliente.gmail}}</p>
+            <p>Email: {{cliente.gmail}}</p>
         </div>
-        <div class="col-4 text-white">
+        <div class="col-2 text-white">
             <p>Apellidos: {{cliente.apellidos}}</p>
             <p>Teléfono: {{cliente.tlf}}</p>
             <p>Mecánico: {{mecanico.nombre}} {{mecanico.apellidos}}</p>
@@ -51,14 +51,23 @@
             <p>Kilómetros: {{coche.km}}</p>
 
         </div>
-        <div class="col-4 text-white">
+        <div class="col-2 text-white">
             <p>Modelo: {{coche.modelo}}</p>
             <p>Averías: {{coche.averias}}</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-12 text-white d-flex justify-content-center">
-            <p> Descripción de las averías: {{coche.descripcionAveria}}</p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-5 text-white d-flex justify-content-center">
+            <div class="row">
+                <div class="col-12">
+                    <p> Descripción de las averías:</p>
+                </div>
+            </div>           
+            <div class="row">
+                <div class="col-12">
+                    <p>{{coche.descripcionAveria}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -67,7 +76,7 @@
     <div class="col-2">
         <label for="costeAveria" class="text-white">Coste de reparación(€):</label>
     </div>
-    <div class="col-4">
+    <div class="col-3">
         <form [formGroup]="regForm">
             <input *ngIf="coche.costeReparacion != '0'" type="number" name="costeAveria" id="costeAveria"
                 class="form-control text-center" placeholder="Coste (€)" value="{{coche.costeReparacion}}" disabled />

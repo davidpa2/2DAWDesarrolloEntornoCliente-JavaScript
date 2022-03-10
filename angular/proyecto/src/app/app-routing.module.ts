@@ -8,7 +8,7 @@ import { FacturaComponent } from './components/factura/factura.component';
 import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
 import { RegistroMecanicosComponent } from './components/registro-mecanicos/registro-mecanicos.component';
 import { PerfilUsuarioComponent } from './components/perfil-usuario/perfil-usuario.component';
-
+import { ReparacionesMecanicoComponent } from './components/reparaciones-mecanico/reparaciones-mecanico.component';
 
 const routes: Routes = [ 
   { path: '', redirectTo:'/inicio', pathMatch:'full'},
@@ -21,6 +21,7 @@ const routes: Routes = [
   { path: 'listaMecanicos', component:MecanicosComponent },
   { path: 'perfilUsuario/:id', component:PerfilUsuarioComponent },
   { path: 'registrarMecanico', component:RegistroMecanicosComponent },
+  { path: 'historialReparaciones', component:ReparacionesMecanicoComponent },
 ];
 
 @NgModule({

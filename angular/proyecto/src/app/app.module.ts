@@ -19,6 +19,7 @@ import { BienvenidaComponent } from './components/bienvenida/bienvenida.componen
 import { RegistroComponent } from './components/registro/registro.component';
 import { MecanicosComponent } from './components/mecanicos/mecanicos.component';
 import { RegistroMecanicosComponent } from './components/registro-mecanicos/registro-mecanicos.component';
+import { ReparacionesMecanicoComponent } from './components/reparaciones-mecanico/reparaciones-mecanico.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -49,6 +50,7 @@ const appRoutes: Routes = [
     RegistroComponent,
     MecanicosComponent,
     RegistroMecanicosComponent,
+    ReparacionesMecanicoComponent,
   ],
   imports: [
     BrowserModule,
